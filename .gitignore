@@ -1,0 +1,6 @@
+desktop.ini
+.vagrant/
+ubuntu-bionic-18.04-cloudimg-console.log
+*.retry
+id_rsa
+id_rsa.pub

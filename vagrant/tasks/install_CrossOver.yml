@@ -1,0 +1,141 @@
+--- 
+- 
+  name: "Disable IPv6 with sysctl"
+  sysctl: "name={{ item }} value=1 state=present"
+  with_items: 
+    - net.ipv6.conf.all.disable_ipv6
+    - net.ipv6.conf.default.disable_ipv6
+    - net.ipv6.conf.lo.disable_ipv6
+- 
+  name: "Adding additional Repos"
+  apt_repository:
+    repo: "ppa:openjdk-r/ppa"
+    validate_certs: no
+    state: present
+- 
+  apt: 
+    update_cache: true
+  name: "Updating via apt-get update"
+- 
+  apt: 
+    name: "{{ packages }}"
+  name: "Install Required Extras"
+  vars: 
+    packages: 
+      - "gdebi"
+      - "ubuntu-desktop"
+      - "gstreamer1.0-plugins-good:i386"
+      - "libasound2:i386"
+      - "libcapi20-3:i386"
+      - "libfontconfig1:i386"
+      - "libgphoto2-6:i386"
+      - "libgsm1:i386"
+      - "libgstreamer1.0-0:i386"
+      - "libldap-2.4-2:i386"
+      - "libopenal1:i386"
+      - "libosmesa6:i386"
+      - "libtiff5:i386"
+      - "libudev1:i386"
+      - "libv4l-0:i386"
+      - "libxcomposite1:i386"
+      - "libxinerama1:i386"
+      - "libxml2:i386"
+      - "libxslt1.1:i386"
+      - "gstreamer1.0-libav:i386"
+      - "libncurses5:i386"
+      - "libsane:i386"
+      - "autoconf"
+      - "automake"
+      - "libtool"
+      - "autoconf-archive"
+      - "libcanberra-gtk0"
+      - "libcanberra-gtk-module"
+      - "libopencv3.2-java"
+      - "pkg-config"
+      - "libcairo2-dev"
+      - "libpango1.0-dev"
+      - "libicu-dev"
+      - "zlib1g-dev"
+      - "libtiff5-dev"
+      - "libjpeg8-dev"
+      - "openjdk-11-jdk"
+- 
+  become: true
+  file: 
+    path: /var/local/ansible-cache
+    state: directory
+  name: "Ensure ansible-cache directory exists"
+- 
+  apt: 
+    deb: "http://crossover.codeweavers.com/redirect/crossover.deb"
+  name: "Download and Install Crossover"
+- 
+  name: "Install extra Libraries and Drivers"
+  register: cxfixresults
+  shell: "/opt/cxoffice/bin/cxfix --auto --dry-run"
+- 
+  name: "Checking for Additional Libraries and Software:"
+  set_fact: 
+    results: "{{ cxfixresults.stdout | regex_search(regexp,'\\1') }}"
+  vars: 
+    regexp: \n(None)\n
+- 
+  debug: 
+    var: results
+  name: "Software Needed:"
+- 
+  get_url: 
+    dest: "/tmp/{{ leptonica_version }}.tar.gz"
+    url: "{{ leptonica_tarball_url }}"
+  name: "Downloading Leptonica sources"
+  register: leptonica_source
+- 
+  name: "Unpacking Leptonica"
+  register: leptonica_source_unpack
+  unarchive: 
+    copy: false
+    dest: /tmp/
+    src: "{{ leptonica_source.dest }}"
+  when: leptonica_source.changed
+- 
+  args: 
+    chdir: "{{ leptonica_install_dir }}"
+  command: ./configure
+  name: "Configuring leptonica source"
+  register: leptonica_configure
+  when: leptonica_source_unpack|changed
+- 
+  args: 
+    chdir: "{{ leptonica_install_dir }}"
+  become: true
+  name: "Installing Leptonica -- Takes a While"
+  shell: "make && make install"
+  when: leptonica_configure|changed
+- 
+  get_url: 
+    dest: "/tmp/{{ tesseract_version }}.tar.gz"
+    url: "{{ tesseract_tarball_url }}"
+  name: "Downloading tesseract sources"
+  register: tesseract_source
+- 
+  name: "Unpacking tesseract"
+  register: tesseract_source_unpack
+  unarchive: 
+    copy: false
+    dest: /tmp/
+    src: "{{ tesseract_source.dest }}"
+  when: tesseract_source.changed
+- 
+  args: 
+    chdir: "{{ tesseract_install_dir }}"
+  shell: " ./autogen.sh && ./configure --enable-debug"
+  name: "Configuring tesseract source"
+  register: tesseract_configure
+  when: tesseract_source_unpack|changed
+- 
+  args: 
+    chdir: "{{ tesseract_install_dir }}"
+  become: true
+  name: "Installing tesseract"
+  shell: 'sudo LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make && make install && make install-langs && ldconfig'
+  when: tesseract_configure|changed

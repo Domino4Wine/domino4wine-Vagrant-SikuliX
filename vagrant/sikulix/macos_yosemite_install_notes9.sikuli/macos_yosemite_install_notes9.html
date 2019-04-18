@@ -1,0 +1,240 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>macos_yosemite_install_notes9.sikuli</h2> <a href="macos_yosemite_install_notes9.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+installFound = False
+cntr = <span class="dig">0</span>
+<span class="kw">while</span> installFound == False <span class="kw">and</span> cntr &lt; <span class="dig">5</span>:
+    cntr = cntr + <span class="dig">1</span>
+    <span class="kw">if</span> exists(<img src="1553458688111.png" />, <span class="dig">10</span>):
+        <span class="skw">click</span>(<img src="1553458688111.png" />)
+        installFound = True
+    <span class="kw">else</span>:
+        <span class="kw">if</span> exists(<img src="1553974194626.png" />):
+            <span class="skw">click</span>(<img src="1553974194626.png" />)
+            installFound = True
+        <span class="kw">else</span>:
+            <span class="kw">if</span> exists(<img src="1554320381143.png" />):
+                <span class="skw">click</span>(<img src="1554320403022.png" />)
+                installFound = True
+    <span class="kw">if</span> installFound == False:
+        <span class="skw">click</span>(<img src="1554750995962.png" />)
+        <span class="skw">sleep</span>(<span class="dig">5</span>)
+        <span class="kw">if</span> exists(<img src="1554751084872.png" />):
+            <span class="skw">click</span>(<img src="1554751112533.png" />)
+        <span class="skw">sleep</span>(<span class="dig">5</span>)
+        <span class="kw">if</span> exists(<img src="1554751147655.png" />):
+            <span class="skw">doubleClick</span>(<img src="1554751160582.png" />)
+        <span class="kw">if</span> exists(<img src="1554751408013.png" />):
+            <span class="skw">doubleClick</span>(<img src="1554751424645.png" />)
+
+setAutoWaitTimeout(<span class="dig">30</span>)
+<span class="skw">wait</span>(<img src="1553726095500.png" />)
+
+<span class="skw">click</span>(<img src="1553725850815.png" />)
+
+<span class="skw">type</span>(<span class="str">"Lotus Notes"</span>)
+<span class="skw">type</span>(Key.DOWN)
+<span class="skw">type</span>(Key.ENTER)
+<span class="skw">click</span>(<img src="1553726129931.png" />)
+<span class="cmt">#click("1553459043797.png")</span>
+<span class="skw">click</span>(<img src="1553459081290.png" />)
+<span class="kw">if</span> exists(<img src="1553459230442.png" />):
+    <span class="skw">click</span>(<img src="1553459243182.png" />)
+<span class="skw">sleep</span>(<span class="dig">16</span>)
+<span class="kw">if</span> exists(<img src="1554318232888.png" />):
+    <span class="skw">click</span>(<img src="1554318288686.png" />)
+<span class="kw">else</span>:
+    <span class="kw">if</span> exists(<img src="1554318726236.png" />):
+        <span class="skw">click</span>(<img src="1554318726236.png" />)
+<span class="kw">if</span> exists(<img src="1554830897253.png" />):
+    <span class="skw">click</span>(<img src="1554830915705.png" />)
+<span class="kw">else</span>:
+    <span class="kw">if</span> exists(<img src="1554830985248.png" />):
+        <span class="skw">click</span>(<img src="1554830999841.png" />)
+
+<span class="skw">click</span>(<img src="1553806121322.png" />)
+<span class="skw">wait</span>(<img src="1553806962065.png" />)
+<span class="skw">click</span>(<img src="1553806962065.png" />)
+
+<span class="skw">wait</span>(<img src="1553807980844.png" />)
+
+<span class="skw">click</span>(<img src="1553459512295.png" />)
+<span class="kw">if</span> exists(<img src="1554320276063.png" />):
+    <span class="skw">click</span>(<img src="1554320311166.png" />)
+<span class="kw">else</span>:
+    <span class="skw">click</span>(<img src="1554320246806.png" />)
+setAutoWaitTimeout(<span class="dig">300</span>)
+<span class="cmt">#wait for fonts install (always first)</span>
+<span class="skw">wait</span>(<img src="1554067949808.png" />)
+<span class="skw">click</span>(<img src="1554067104423.png" />)
+
+installed_count=<span class="dig">0</span>
+<span class="kw">while</span> installed_count &lt; <span class="dig">5</span>:
+    <span class="skw">sleep</span>(<span class="dig">20</span>)
+    <span class="kw">if</span> exists(<img src="1553459670626.png" />,<span class="dig">5</span>):
+        <span class="skw">wait</span>(<img src="1553459670626.png" />)
+        <span class="skw">click</span>(<img src="1553459681122.png" />)
+        <span class="skw">wait</span>(<img src="1553459693322.png" />)
+        <span class="skw">click</span>(<img src="1553459701052.png" />)
+        <span class="skw">wait</span>(<img src="1553459713981.png" />)
+        <span class="skw">click</span>(<img src="1553459722998.png" />)
+        <span class="skw">wait</span>(<img src="1553459740326.png" />)
+        <span class="skw">click</span>(<img src="1553459748498.png" />)
+        <span class="skw">click</span>(<img src="1553459759206.png" />)
+        installed_count = <span class="dig">1</span> + installed_count
+    <span class="kw">if</span> exists(<img src="1553459796817.png" />,<span class="dig">5</span>):
+        <span class="skw">wait</span>(<img src="1553459796817.png" />)
+        <span class="skw">click</span>(<img src="1553459806498.png" />)
+        <span class="skw">click</span>(<img src="1553459817876.png" />)
+        <span class="skw">wait</span>(<img src="1553459831220.png" />)
+        <span class="skw">sleep</span>(<span class="dig">5</span>)
+        <span class="kw">if</span> exists(<img src="1553459839606.png" />):
+            <span class="skw">click</span>(<img src="1553459839606.png" />)
+        <span class="kw">else</span>:
+           <span class="skw">click</span>(<img src="1554149470015.png" />)
+        <span class="skw">sleep</span>(<span class="dig">15</span>)
+        <span class="kw">if</span> exists(<img src="1554149515809.png" />):
+            <span class="skw">click</span>(<img src="1554149548861.png" />)
+        installed_count = <span class="dig">1</span> + installed_count
+
+    <span class="kw">if</span> exists(<img src="1553459859163.png" />,<span class="dig">5</span>):
+        <span class="skw">wait</span>(<img src="1553459859163.png" />)
+        <span class="skw">click</span>(<img src="1553459866799.png" />)
+        <span class="skw">wait</span>(<img src="1553459875257.png" />)
+        <span class="skw">click</span>(<img src="1553459884684.png" />)
+        <span class="skw">click</span>(<img src="1553459893832.png" />)
+        <span class="skw">wait</span>(<img src="1553459911383.png" />)
+        <span class="skw">click</span>(<img src="1553459918158.png" />)
+        <span class="skw">wait</span>(<img src="1553459929517.png" />)
+        <span class="skw">click</span>(<img src="1553459935667.png" />)
+        <span class="skw">wait</span>(<img src="1553459946892.png" />)
+        <span class="skw">click</span>(<img src="1553459953587.png" />)
+        installed_count = <span class="dig">1</span> + installed_count
+
+    <span class="kw">if</span> exists(<img src="1553459976893.png" />,<span class="dig">5</span>):
+        <span class="skw">wait</span>(<img src="1553459976893.png" />)
+        <span class="skw">click</span>(<img src="1553459984892.png" />)
+        <span class="skw">wait</span>(<img src="1553459997556.png" />)
+        <span class="skw">click</span>(<img src="1553460004342.png" />)
+        <span class="skw">wait</span>(<img src="1553460016750.png" />)
+        <span class="skw">click</span>(<img src="1553460022914.png" />)
+        <span class="skw">wait</span>(<img src="1553460070106.png" />)
+        <span class="skw">click</span>(<img src="1553460077704.png" />)
+        <span class="cmt">#wait("1553460169218.png")</span>
+        <span class="cmt">#click("1553460177244.png")</span>
+        installed_count = <span class="dig">1</span> + installed_count
+    <span class="kw">if</span> exists(<img src="1553812773324.png" />,<span class="dig">5</span>):
+        <span class="skw">click</span>(<img src="1553812801235.png" />)
+        installed_count = <span class="dig">1</span> + installed_count
+
+<span class="skw">wait</span>(<img src="1553460218249.png" />)
+<span class="skw">click</span>(<img src="1553460304194.png" />)
+<span class="skw">wait</span>(<img src="1554322366534.png" />)
+<span class="skw">sleep</span>(<span class="dig">180</span>)
+<span class="skw">wait</span>(<img src="1554323030463.png" />)
+<span class="skw">click</span>(<img src="1554323043045.png" />)
+<span class="skw">wait</span>(<img src="1554323088004.png" />)
+<span class="skw">click</span>(<img src="1553460490666.png" />)
+<span class="skw">click</span>(<img src="1553460515217.png" />)
+<span class="skw">wait</span>(<img src="1553460540750.png" />)
+<span class="skw">click</span>(<img src="1553460548786.png" />)
+<span class="cmt">#wait("1553460565342.png")</span>
+<span class="skw">wait</span>(<img src="1553903448880.png" />)
+
+<span class="skw">click</span>(Pattern(<img src="1554835977896.png" />).targetOffset(-<span class="dig">22</span>,-<span class="dig">1</span>))
+<span class="skw">type</span>(Key.DOWN)
+<span class="skw">type</span>(Key.DOWN)
+<span class="skw">type</span>(Key.ENTER)
+<span class="skw">click</span>(Pattern(<img src="1554836441076.png" />).targetOffset(-<span class="dig">57</span>,<span class="dig">0</span>)
+<span class="skw">type</span>(Key.DOWN)
+<span class="skw">type</span>(Key.DOWN)
+<span class="skw">type</span>(Key.ENTER)
+
+
+<span class="skw">click</span>(<img src="1553460572559.png" />)
+<span class="skw">wait</span>(<img src="1553460582850.png" />)
+<span class="skw">click</span>(<img src="1553460594577.png" />)
+<span class="skw">wait</span>(<img src="1553460659490.png" />, <span class="dig">120</span>)
+<span class="skw">wait</span>(<img src="1553980589624.png" />, <span class="dig">600</span>)
+<span class="skw">click</span>(<img src="1553460870001.png" />)
+<span class="skw">wait</span>(<img src="1553460893672.png" />, <span class="dig">120</span>)
+<span class="skw">click</span>(<img src="1553976982369.png" />)
+<span class="skw">wait</span>(<img src="1553460978486.png" />, <span class="dig">300</span>)
+<span class="skw">click</span>(<img src="1553461022190.png" />)
+<span class="skw">type</span>(<span class="str">"q"</span>, Key.CMD)
+<span class="skw">wait</span>(<img src="1553978988503.png" />, <span class="dig">120</span>)
+<span class="skw">click</span>(<img src="1553978988503.png" />)
+<span class="skw">click</span>(<img src="1553979075018.png" />)<h3>ERROR: EOF in multi-line statement</h3>
+</font></pre>
+</pre>
+</body>
+</html>

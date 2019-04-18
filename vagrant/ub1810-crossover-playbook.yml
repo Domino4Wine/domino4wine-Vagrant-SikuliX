@@ -1,0 +1,15 @@
+---
+-
+  become: true
+  gather_facts: true
+  hosts: all
+  vars: 
+    leptonica_install_dir: "/tmp/{{ leptonica_version }}"
+    leptonica_tarball_url: "http://www.leptonica.com/source/{{ leptonica_version }}.tar.gz"
+    leptonica_version: "leptonica-1.74.4"
+    tesseract_install_dir: "/tmp/tesseract-3.05.02"
+    tesseract_tarball_url: "https://github.com/tesseract-ocr/tesseract/archive/{{ tesseract_version }}.tar.gz"
+    tesseract_version: "3.05.02"
+  tasks:
+    -
+      include: tasks/install_CrossOver.yml
