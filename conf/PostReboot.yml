@@ -1,0 +1,9 @@
+--- 
+- 
+  become: true
+  gather_facts: true
+  hosts: all
+  tasks: 
+    - 
+      name: "Running Setup"
+      include: tasks/PostRebootSetup.yml

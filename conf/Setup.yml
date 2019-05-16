@@ -1,0 +1,30 @@
+--- 
+- 
+  become: true
+  gather_facts: true
+  hosts: all
+  vars: 
+    leptonica_install_dir: "/tmp/{{ leptonica_version }}"
+    leptonica_tarball_url: "https://github.com/DanBloomberg/leptonica/releases/download/1.78.0/{{ leptonica_version }}.tar.gz"
+    leptonica_version: "leptonica-1.78.0"
+    tesseract_install_dir: "/tmp/tesseract-{{ tesseract_version }}"
+    tesseract_tarball_url: "https://github.com/tesseract-ocr/tesseract/archive/{{ tesseract_version }}.tar.gz"
+    tesseract_version: "3.05.02"
+  tasks: 
+    - 
+      name: "Running Setup"
+      include: tasks/Setup.yml
+    - 
+      name: "Running Sikulix Setup"
+      include: tasks/Sikulix.yml
+    - 
+      name: "Running Crossover Setup"
+      include: tasks/CrossOver.yml
+    - 
+      name: "Running Jenkins Setup"
+      include: tasks/Jenkins.yml
+    - 
+      name: "Running Tasks"
+      include: "{{ item }}"
+      with_fileglob:
+      - tasks/extras/*.yml

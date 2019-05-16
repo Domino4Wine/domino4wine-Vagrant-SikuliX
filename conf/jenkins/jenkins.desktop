@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=env JENKINS_HOME=/var/lib/jenkins java -jar /usr/share/jenkins/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+Hidden=False
+NoDisplay=False
+X-GNOME-Autostart-enabled=true
+Name[C]=Jenkins
+Name=Jenkins
+Comment[C]=Jenkins
+Comment=Jenkins

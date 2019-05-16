@@ -1,0 +1,198 @@
+--- 
+- 
+  apt: 
+    name: "{{ packages }}"
+  name: "Install Required Jenkins Dependencies -- Takes about 5 Mins"
+  vars: 
+    packages: 
+      - gnupg
+      - xmlstarlet
+      - git-core
+- 
+  name: "Allow access to Jenkins"
+  ufw: 
+    port: 8080
+    proto: tcp
+    rule: allow
+- 
+  apt_key: 
+    state: present
+    url: "https://pkg.jenkins.io/debian/jenkins.io.key"
+  name: "Install Jenkins Apt Key"
+- 
+  file: 
+    path: /etc/apt/sources.list.d/jenkins.list
+    state: touch
+  name: "Create Jenkins Sources.list folder"
+- 
+  lineinfile: 
+    line: "deb http://pkg.jenkins.io/debian-stable binary/"
+    path: /etc/apt/sources.list.d/jenkins.list
+  name: "Adding Jenkins to Sources.list"
+- 
+  apt: 
+    update_cache: true
+  name: "Updating via apt-get update"
+- 
+  apt: 
+    name: "{{ packages }}"
+    install_recommends: no
+  name: "Jenkins -- Takes about 3 Minutes"
+  vars: 
+    packages: 
+      - jenkins
+- 
+  name: "Starting Jenkins Service"
+  service: 
+    enabled: false
+    name: jenkins
+    state: restarted
+- 
+  name: "Stopping Jenkins Service"
+  service: 
+    enabled: false
+    name: jenkins
+    state: stopped
+- 
+  file: 
+    group: vagrant
+    mode: 0751
+    owner: vagrant
+    path: /var/cache/jenkins
+    recurse: yes
+  name: "Preparing Jenkins Cache folder permissions for user setup"
+- 
+  file: 
+    group: vagrant
+    owner: vagrant
+    path: /var/lib/jenkins
+    recurse: yes
+  name: "Preparing Jenkins Library folder permissions for user setup"
+- 
+  file: 
+    group: vagrant
+    owner: vagrant
+    path: /var/run/jenkins
+    recurse: yes
+  name: "Preparing Jenkins run folder permissions for user setup"
+- 
+  file: 
+    group: vagrant
+    owner: vagrant
+    path: /var/log/jenkins
+    recurse: yes
+  name: "Preparing Jenkins log folder permissions for user setup"
+- 
+  lineinfile: 
+    insertafter: "^# user and group"
+    line: JENKINS_USER=vagrant
+    path: /etc/default/jenkins
+    regexp: ^JENKINS_USER=
+  name: "Setting Jenkins to start as user"
+- 
+  lineinfile: 
+    insertafter: "^# user and group"
+    line: JENKINS_GROUP=vagrant
+    path: /etc/default/jenkins
+    regexp: ^JENKINS_GROUP=
+  name: "Setting Jenkins to start as user"
+- 
+  name: "Starting Jenkins Service"
+  service: 
+    enabled: false
+    name: jenkins
+    state: started
+- pause:
+    minutes: 1
+  name: Waiting for Jenkins Config.XML to generate before stopping service.  
+- 
+  name: "Stopping Jenkins Service"
+  service: 
+    enabled: false
+    name: jenkins
+    state: stopped
+- 
+  copy: 
+    dest: /var/lib/jenkins/config.xml.orig
+    src: /var/lib/jenkins/config.xml
+  name: "Backing up Config.XML to Config.XML.orig"
+- 
+  become: true
+  name: "Configuring Jenkins"
+  shell: "cd /var/lib/jenkins && tail -n +2 config.xml.orig >config.xml && xmlstarlet edit --inplace -u '/hudson/useSecurity' -v 'false' config.xml && xmlstarlet edit --inplace -d '/hudson/authorizationStrategy' config.xml && xmlstarlet edit --inplace -d '/hudson/securityRealm' config.xml && xmlstarlet edit --inplace -u '/hudson/installStateName' -v 'RUNNING' config.xml &&  diff -u config.xml{.orig,} || true"
+- 
+  name: "Starting Jenkins Service"
+  service: 
+    enabled: true
+    name: jenkins
+    state: started
+- 
+  delay: 5
+  get_url: 
+    dest: "/home/vagrant/jenkins-cli.jar"
+    url: "http://localhost:8080/jnlpJars/jenkins-cli.jar"
+  name: "Downloading  Jenkins CLI from localhost"
+  register: jenkinscli_source
+  retries: 5
+  until: "jenkinscli_source is success"
+- 
+  name: Wait untils Jenkins web API is available
+  shell: curl --head --silent http://{{ ip }}:8080/cli/
+  register: result
+  until: result.stdout.find("200 OK") != -1
+  retries: 12
+  delay: 5
+- 
+  become: true
+  name: "Installing Jenkins Plugin: xunit"
+  shell: "cd /home/vagrant && /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar jenkins-cli.jar -s http://{{ ip }}:8080/ install-plugin xunit workflow-step-api scm-api structs junit script-security git"
+  retries: 5
+  delay: 5
+- 
+  git_config: 
+    name: user.email
+    scope: global
+    value: jenkins@example.com
+  name: "Configure git Email"
+- 
+  git_config: 
+    name: user.name
+    scope: global
+    value: Jenkins
+  name: "Configure git User Name"
+- 
+  git_config: 
+    name: push.default
+    scope: global
+    value: simple
+  name: "Configure git Push"
+- 
+  git_config: 
+    name: core.autocrlf
+    scope: global
+    value: false
+  name: "Configure git AutoCRLF"
+- 
+  file: 
+    path: /home/vagrant/.config/autostart
+    state: directory
+  name: "Start Jenkins when User logins"
+- 
+  copy: 
+    dest: /home/vagrant/.config/autostart
+    src: /vagrant/jenkins/jenkins.desktop
+  name: "Adding Jenkins to Autostart"
+- 
+  lineinfile: 
+    insertafter: "^#assistive_technologi"
+    line: "#" 
+    path: /etc/java-8-openjdk/accessibility.properties
+    regexp: "^assistive_technologi"
+  name: "Fixing Java Assistive Tech"
+- 
+  file: 
+    group: vagrant
+    owner: vagrant
+    path: /home/vagrant
+    recurse: yes
+  name: "Setting Vagrant permissions"
