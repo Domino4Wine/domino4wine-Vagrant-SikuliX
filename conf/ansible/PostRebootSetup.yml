@@ -32,6 +32,7 @@
 --- 
 
 -
+  become: true
   name: "Disabling Power savings and Lock Screen"
   dconf:
     key: "/org/gnome/desktop/session/idle-delay"
