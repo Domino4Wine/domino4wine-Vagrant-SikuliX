@@ -108,6 +108,7 @@
     mode: "0777"
     recurse: true
 - 
+  become: true
   name: dconf Idle Delay
   dconf:
     key: "/org/gnome/desktop/session/idle-delay"
