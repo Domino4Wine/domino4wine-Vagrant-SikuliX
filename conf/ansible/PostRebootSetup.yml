@@ -30,14 +30,10 @@
 ##################################################################################
 ##################################################################################
 --- 
-
 -
   become: true
   name: "Disabling Power savings and Lock Screen"
-  dconf:
-    key: "/org/gnome/desktop/session/idle-delay"
-    value: "'0'"
-    state: present
+  shell: "/vagrant/ansible/unlock.sh"
 -  
   name: correct java version selected
   alternatives:
