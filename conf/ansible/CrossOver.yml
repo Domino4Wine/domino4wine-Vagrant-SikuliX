@@ -49,12 +49,16 @@
   until: cxresult is success
 - 
   apt: 
-    name: screen, psutil
-  name: "Download and Install Crossover -- Takes about 5 Mins"
+    name: screen
+  name: "Install Screen "
   retries: 5
   delay: 10
   register: screen
   until: screen is success
+- 
+  pip:
+    name: psutil
+  name: Installing PSUtil
 - 
   name: "Install extra Libraries and Drivers"
   register: cxfixresults
