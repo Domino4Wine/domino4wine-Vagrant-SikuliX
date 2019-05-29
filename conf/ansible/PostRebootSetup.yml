@@ -32,7 +32,12 @@
 --- 
 -
   name: "Disabling Power savings and Lock Screen"
-    shell: 'dconf write /org/gnome/desktop/session/idle-delay "0"; dconf write /org/gnome/desktop/screensaver/logout-delay "0"; dconf write /org/gnome/desktop/screensaver/ubuntu-lock-on-suspend "false"; dconf write /org/gnome/desktop/screensaver/idle-activation-enabled "false"; dconf write /org/gnome/desktop/screensaver/lock-enabled "false"; '
+    shell: |
+      dconf write /org/gnome/desktop/session/idle-delay '0'
+      dconf write /org/gnome/desktop/screensaver/logout-delay '0'
+      dconf write /org/gnome/desktop/screensaver/ubuntu-lock-on-suspend 'false'
+      dconf write /org/gnome/desktop/screensaver/idle-activation-enabled 'false'
+      dconf write /org/gnome/desktop/screensaver/lock-enabled 'false'
 -  
   name: correct java version selected
   alternatives:
