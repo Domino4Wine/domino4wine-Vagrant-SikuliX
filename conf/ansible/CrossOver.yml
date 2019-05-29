@@ -58,12 +58,7 @@
   vars: 
     packages: 
       - screen
-      - python-pip
-      - python3-pip
-- 
-  pip:
-    name: psutil
-  name: Installing PSUtil
+      - python-psutil
 - 
   name: "Install extra Libraries and Drivers"
   register: cxfixresults
