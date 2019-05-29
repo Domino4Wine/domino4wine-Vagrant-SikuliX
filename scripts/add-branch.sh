@@ -33,11 +33,11 @@
 S=$1;
 if [ -z "$S" ]
 then
-      echo "\$S is NULL, Skipping addition of branch"
+      echo "A Branch is not specified, Skipping addition of branch"
 else
-      echo "\$S is NOT NULL, Adding Branch $S"
+      echo "A Branch is specified, Adding Branch $S"
 	  sudo rm -rf /temp
 	  sudo mkdir -p /temp
       sudo git clone -b $S https://github.com/prominic/domino4wine-Vagrant-SikuliX.git /temp
-	  cp -r /temp/conf/* /vagrant
+	  #cp -r /temp/conf/* /vagrant
 fi

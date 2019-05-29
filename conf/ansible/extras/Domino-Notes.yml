@@ -1,0 +1,12 @@
+---
+- 
+  name: "Remove IDE from Starting"
+  file: >
+    path=/etc/profile.d/Sikulix.sh
+    state=absent
+- 
+  name: "Add Jenkins Jobs"
+  file: >
+    src=/vagrant/jenkins/jobs
+    dest=/var/lib/jenkins/
+    state=directory

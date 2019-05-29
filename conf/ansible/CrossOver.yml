@@ -48,6 +48,23 @@
   register: cxresult
   until: cxresult is success
 - 
+  apt: 
+    name: "{{ packages }}"
+  name: "Installing Pythong and Screen"
+  retries: 5
+  delay: 10
+  register: screen
+  until: screen is success
+  vars: 
+    packages: 
+      - screen
+      - python-pip
+      - python3-pip
+- 
+  pip:
+    name: psutil
+  name: Installing PSUtil
+- 
   name: "Install extra Libraries and Drivers"
   register: cxfixresults
   shell: "/opt/cxoffice/bin/cxfix --auto --dry-run"
