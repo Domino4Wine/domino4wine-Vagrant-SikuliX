@@ -30,9 +30,13 @@
 ##################################################################################
 ##################################################################################
 --- 
+
 -
   name: "Disabling Power savings and Lock Screen"
-  shell: export DISPLAY=:0 && dconf write /org/gnome/desktop/session/idle-delay "0"
+  dconf:
+    key: "/org/gnome/desktop/session/idle-delay"
+    value: "0"
+    state: present
 -  
   name: correct java version selected
   alternatives:
