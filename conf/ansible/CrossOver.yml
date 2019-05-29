@@ -29,8 +29,64 @@
 ##    it in the license file.                                                   ##
 ##################################################################################
 ##################################################################################
-echo "alias ..='cd ..'
-alias ...='cd ../..'
-alias h='cd ~'
-alias c='clear'
-alias ll='ls -la'" | tee -a /home/vagrant/.bash_aliases
+--- 
+- 
+  delay: 5
+  get_url: 
+    dest: "/tmp/crossover_18.5.0-1.deb"
+    url: "https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_18.5.0-1.deb"
+  name: "Downloading  Crossover"
+  register: Crossover_source
+  retries: 5
+  until: "Crossover_source is success"
+- 
+  apt: 
+    deb: "/tmp/crossover_18.5.0-1.deb"
+  name: "Download and Install Crossover -- Takes about 5 Mins"
+  retries: 5
+  delay: 10
+  register: cxresult
+  until: cxresult is success
+- 
+  name: "Install extra Libraries and Drivers"
+  register: cxfixresults
+  shell: "/opt/cxoffice/bin/cxfix --auto --dry-run"
+- 
+  name: "Checking for Additional Libraries and Software:"
+  set_fact: 
+    results: "{{ cxfixresults.stdout | regex_search(regexp,'\\1') }}"
+  vars: 
+    regexp: \n(None)\n
+- 
+  debug: 
+    var: results
+  name: "Software Needed:"
+- 
+  copy: 
+    dest: /home/vagrant/Desktop/
+    src: /vagrant/Sikulix/deps/Sikuli.desktop
+  name: "Adding Desktop Icon for Sikulix"
+- 
+  name: Set Sikulix to start on User Login
+  file: >
+    src=/vagrant/Sikulix/deps/Sikulix.sh
+    dest=/etc/profile.d/Sikulix.sh
+    state=link
+- 
+  copy: 
+    dest: /home/vagrant/.config/autostart
+    src: /vagrant/jenkins/jenkins.desktop
+  name: "Adding Jenkins to Autostart"
+- 
+  name: "Changing perm of Desktop Icon"
+  file:
+    path:  /home/vagrant/Desktop/Sikuli.desktop
+    owner: vagrant
+    mode: "a+x"
+- 
+  name: "Changing perm of Jars"
+  file:
+    path:  /jars
+    owner: vagrant
+    mode: "0777"
+    recurse: true

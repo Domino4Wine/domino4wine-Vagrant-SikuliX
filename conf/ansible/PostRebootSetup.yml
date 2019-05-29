@@ -29,8 +29,13 @@
 ##    it in the license file.                                                   ##
 ##################################################################################
 ##################################################################################
-echo "alias ..='cd ..'
-alias ...='cd ../..'
-alias h='cd ~'
-alias c='clear'
-alias ll='ls -la'" | tee -a /home/vagrant/.bash_aliases
+--- 
+-
+  become: true
+  name: "Disabling Power savings and Lock Screen"
+  shell: "gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0 && gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0  && gsettings set org.gnome.desktop.screensaver idle-activation-enabled false && gsettings set org.gnome.settings-daemon.plugins.power idle-dim false && gsettings set org.gnome.desktop.session idle-delay 0 && gsettings set org.gnome.desktop.screensaver lock-enabled false"
+-  
+  name: correct java version selected
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
