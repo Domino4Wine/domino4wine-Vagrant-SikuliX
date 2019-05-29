@@ -36,11 +36,7 @@ then
 else
       echo "\$DISPLAY is $DISPLAY"
 	  echo "Starting Sikulix in Screen Session"
-	  sudo /usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar -v
-	 
-      #screen -dmS Sikulix "sudo /usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar -v"
-      sleep 20
+      screen -dmS Sikulix sudo /usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar 
+      sleep 3
       echo "Done"
 fi
-
-
