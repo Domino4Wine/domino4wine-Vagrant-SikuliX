@@ -107,10 +107,3 @@
     owner: vagrant
     mode: "0777"
     recurse: true
-- 
-  become: true
-  name: dconf Idle Delay
-  dconf:
-    key: "/org/gnome/desktop/session/idle-delay"
-    value: "'0'"
-    state: present  
