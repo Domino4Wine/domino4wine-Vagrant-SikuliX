@@ -87,7 +87,6 @@ sudo apt-get install virtualbox vagrant git-core -y
 This project utlizes a few extra plugins provided by the Vagrant community, Once Vagrant has been installed, add these plugins:
 
 ```shell
-vagrant plugin install vagrant-disksize
 vagrant plugin install vagrant-reload
 ```
 
