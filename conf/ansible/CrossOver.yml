@@ -48,6 +48,14 @@
   register: cxresult
   until: cxresult is success
 - 
+  apt: 
+    name: screen
+  name: "Download and Install Crossover -- Takes about 5 Mins"
+  retries: 5
+  delay: 10
+  register: screen
+  until: screen is success
+- 
   name: "Install extra Libraries and Drivers"
   register: cxfixresults
   shell: "/opt/cxoffice/bin/cxfix --auto --dry-run"
