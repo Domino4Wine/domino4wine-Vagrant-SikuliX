@@ -49,7 +49,7 @@
   until: cxresult is success
 - 
   apt: 
-    name: screen
+    name: screen, psutil
   name: "Download and Install Crossover -- Takes about 5 Mins"
   retries: 5
   delay: 10
