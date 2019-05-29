@@ -99,19 +99,18 @@
     mode: "0777"
     recurse: true
 - 
-  name: Configure available keyboard layouts in Cinnamon
   dconf:
     key: "/org/gnome/desktop/screensaver/idle-activation-enabled"
     value: "false"
     state: present    
 - 
-  name: Configure available keyboard layouts in Cinnamon
+  name: Dconf lock Delay
   dconf:
     key: "/org/gnome/desktop/screensaver/lock-enabled"
     value: "false"
     state: present   
 - 
-  name: Configure available keyboard layouts in Cinnamon
+  name: dconf Idle Delay
   dconf:
     key: "/org/gnome/desktop/session/idle-delay"
     value: "0"
