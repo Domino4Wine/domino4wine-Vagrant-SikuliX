@@ -1,2 +1,0 @@
-/vagrant/Sikulix/deps/jruby-complete-9.2.7.0.jar
-/vagrant/Sikulix/deps/jython-standalone-2.7.1.jar
