@@ -49,7 +49,7 @@
   until: cxresult is success
 - 
   apt: 
-    name: screen, pip
+    name: screen, python-pip
   name: "Install Screen "
   retries: 5
   delay: 10
