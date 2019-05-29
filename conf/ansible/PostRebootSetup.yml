@@ -61,10 +61,10 @@
     path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 -  
   name: "Set Display to 1440x900"
-  shell: 'xrandr  -d :0--newmode "1280x1024_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync'
+  shell: 'xrandr  -d :0 --newmode "1280x1024_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync'
 -  
   name: "Set Display to 1440x900"
-  shell: 'xrandr  -d :0--addmode VGA-1 1440x900_60.00'
+  shell: 'xrandr  -d :0 --addmode VGA-1 1440x900_60.00'
 -  
   name: "Set Display to 1440x900"
   shell: 'xrandr -d :0 --output VGA-1 --mode "1440x900_60.00"'
