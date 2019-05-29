@@ -50,7 +50,7 @@
 - 
   apt: 
     name: "{{ packages }}"
-  name: "Install Desktop -- Takes about 15 Minutes"
+  name: "Installing Pythong and Screen"
   retries: 5
   delay: 10
   register: screen
@@ -59,6 +59,7 @@
     packages: 
       - screen
       - python-pip
+      - python3-pip
 - 
   pip:
     name: psutil
