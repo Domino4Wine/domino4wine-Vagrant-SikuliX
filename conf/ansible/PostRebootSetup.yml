@@ -32,7 +32,7 @@
 --- 
 -
   name: "Disabling Power savings and Lock Screen"
-    shell: 'dconf write /org/gnome/desktop/session/idle-delay "0"'
+    command: dconf write /org/gnome/desktop/session/idle-delay "0"
 -  
   name: correct java version selected
   alternatives:
