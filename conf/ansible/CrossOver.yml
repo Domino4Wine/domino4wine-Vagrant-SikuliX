@@ -98,3 +98,20 @@
     owner: vagrant
     mode: "0777"
     recurse: true
+- 
+  dconf:
+    key: "/org/gnome/desktop/screensaver/idle-activation-enabled"
+    value: "false"
+    state: present    
+- 
+  name: Dconf lock Delay
+  dconf:
+    key: "/org/gnome/desktop/screensaver/lock-enabled"
+    value: "false"
+    state: present   
+- 
+  name: dconf Idle Delay
+  dconf:
+    key: "/org/gnome/desktop/session/idle-delay"
+    value: "0"
+    state: present  
