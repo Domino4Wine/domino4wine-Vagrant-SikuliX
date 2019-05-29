@@ -391,7 +391,7 @@ See also the list of [contributors](https://github.com/prominic/domino4wine-Vagr
 
 ## License
 
-This project is licensed under the SSPLv1 - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
