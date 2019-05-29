@@ -111,5 +111,5 @@
   name: dconf Idle Delay
   dconf:
     key: "/org/gnome/desktop/session/idle-delay"
-    value: 0
+    value: "0"
     state: present  
