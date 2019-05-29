@@ -49,12 +49,16 @@
   until: cxresult is success
 - 
   apt: 
-    name: screen, python-pip
-  name: "Install Screen "
+    name: "{{ packages }}"
+  name: "Install Desktop -- Takes about 15 Minutes"
   retries: 5
   delay: 10
   register: screen
   until: screen is success
+  vars: 
+    packages: 
+      - screen
+      - python-pip
 - 
   pip:
     name: psutil
