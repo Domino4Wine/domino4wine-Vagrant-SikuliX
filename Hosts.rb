@@ -69,7 +69,9 @@ class Hosts
           vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
           vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
           vb.customize ['modifyvm', :id, '--ostype', 'Ubuntu_64']
-
+		  vb.customize ['setextradata', 'global', 'GUI/MaxGuestResolution', 'any']
+		  vb.customize ['setextradata', :id, 'CustomVideoMode1', '1366x768x32']
+		  
           if host.has_key?('provider')
             host['provider'].each do |param|
               vb.customize ['modifyvm', :id, "--#{param['directive']}", param['value']]
