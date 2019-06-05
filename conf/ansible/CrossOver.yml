@@ -33,7 +33,7 @@
 - 
   delay: 5
   get_url: 
-    dest: "/tmp/crossover_18.5.0-1.deb"
+    dest: /tmp/crossover_18.5.0-1.deb
     url: "https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_18.5.0-1.deb"
   name: "Downloading  Crossover"
   register: Crossover_source
@@ -41,22 +41,22 @@
   until: "Crossover_source is success"
 - 
   apt: 
-    deb: "/tmp/crossover_18.5.0-1.deb"
-  name: "Download and Install Crossover -- Takes about 5 Mins"
-  retries: 5
+    deb: /tmp/crossover_18.5.0-1.deb
   delay: 10
+  name: "Download and Install Crossover -- Takes about 5 Mins"
   register: cxresult
-  until: cxresult is success
+  retries: 5
+  until: "cxresult is success"
 - 
 <<<<<<< HEAD
 =======
   apt: 
     name: "{{ packages }}"
-  name: "Installing Pythong and Screen"
-  retries: 5
   delay: 10
+  name: "Installing Pythong and Screen"
   register: screen
-  until: screen is success
+  retries: 5
+  until: "screen is success"
   vars: 
     packages: 
       - screen
@@ -82,30 +82,31 @@
     src: /vagrant/Sikulix/deps/Sikuli.desktop
   name: "Adding Desktop Icon for Sikulix"
 - 
-  name: Set Sikulix to start on User Login
-  file: >
-    src=/vagrant/Sikulix/deps/Sikulix.sh
-    dest=/etc/profile.d/Sikulix.sh
-    state=link
+  file: "src=/vagrant/Sikulix/deps/Sikulix.sh dest=/etc/profile.d/Sikulix.sh state=link\n"
+  name: "Set Sikulix to start on User Login"
 - 
   copy: 
     dest: /home/vagrant/.config/autostart
     src: /vagrant/jenkins/jenkins.desktop
   name: "Adding Jenkins to Autostart"
 - 
+  file: 
+    mode: a+x
+    owner: vagrant
+    path: /home/vagrant/Desktop/Sikuli.desktop
   name: "Changing perm of Desktop Icon"
-  file:
-    path:  /home/vagrant/Desktop/Sikuli.desktop
-    owner: vagrant
-    mode: "a+x"
 - 
-  name: "Changing perm of Jars"
-  file:
-    path:  /jars
-    owner: vagrant
+  file: 
     mode: "0777"
+<<<<<<< HEAD
 <<<<<<< HEAD
     recurse: true
 =======
     recurse: true
 >>>>>>> b55aea96f62ec9624f426e976e7cd1291b471f59
+=======
+    owner: vagrant
+    path: /jars
+    recurse: true
+  name: "Changing perm of Jars"
+>>>>>>> aeb7a1391cb9f3a6d0442a01cd10dde9283a9be7
