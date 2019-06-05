@@ -30,50 +30,41 @@
 ##################################################################################
 ##################################################################################
 --- 
--
-<<<<<<< HEAD
-  become: true
-  name: "Disabling Power savings and Lock Screen"
-  shell: "gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0 && gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0  && gsettings set org.gnome.desktop.screensaver idle-activation-enabled false && gsettings set org.gnome.settings-daemon.plugins.power idle-dim false && gsettings set org.gnome.desktop.session idle-delay 0 && gsettings set org.gnome.desktop.screensaver lock-enabled false"
-=======
+- 
   become_user: vagrant
-  name: "Disabling Power savings and Lock Screen"
-  dconf:
-    key: "/org/gnome/desktop/session/idle-delay"
+  dconf: 
+    key: /org/gnome/desktop/session/idle-delay
     value: "uint32 0"
--
-  become_user: vagrant
   name: "Disabling Power savings and Lock Screen"
-  dconf:
-    key: "/org/gnome/desktop/screensaver/lock-enabled"
-    value: "false"
--
+- 
   become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/screensaver/lock-enabled
+    value: "false"
   name: "Disabling Power savings and Lock Screen"
-  dconf:
-    key: "/org/gnome/desktop/screensaver/idle-activation-enabled"
-    value: "false"
--
+- 
   become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/screensaver/idle-activation-enabled
+    value: "false"
+  name: "Disabling Power savings and Lock Screen"
+- 
+  become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/screensaver/ubuntu-lock-on-suspend
+    value: "false"
   name: "Disable Lock on suspend"
-  dconf:
-    key: "/org/gnome/desktop/screensaver/ubuntu-lock-on-suspend"
-    value: "false"
->>>>>>> b55aea96f62ec9624f426e976e7cd1291b471f59
--  
-  name: correct java version selected
-  alternatives:
+- 
+  alternatives: 
     name: java
     path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
-<<<<<<< HEAD
-=======
--  
+  name: "correct java version selected"
+- 
   name: "Set Display to 1440x900"
-  shell: 'xrandr  -d :0 --newmode "1280x1024_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync'
--  
+  shell: "xrandr  -d :0 --newmode \"1280x1024_60.00\"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync"
+- 
   name: "Set Display to 1440x900"
-  shell: 'xrandr  -d :0 --addmode VGA-1 1440x900_60.00'
--  
+  shell: "xrandr  -d :0 --addmode VGA-1 1440x900_60.00"
+- 
   name: "Set Display to 1440x900"
-  shell: 'xrandr -d :0 --output VGA-1 --mode "1440x900_60.00"'
->>>>>>> b55aea96f62ec9624f426e976e7cd1291b471f59
+  shell: "xrandr -d :0 --output VGA-1 --mode \"1440x900_60.00\""
