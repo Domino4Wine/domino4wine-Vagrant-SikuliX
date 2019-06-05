@@ -48,6 +48,8 @@
   register: cxresult
   until: cxresult is success
 - 
+<<<<<<< HEAD
+=======
   apt: 
     name: "{{ packages }}"
   name: "Installing Pythong and Screen"
@@ -60,6 +62,7 @@
       - screen
       - python-psutil
 - 
+>>>>>>> b55aea96f62ec9624f426e976e7cd1291b471f59
   name: "Install extra Libraries and Drivers"
   register: cxfixresults
   shell: "/opt/cxoffice/bin/cxfix --auto --dry-run"
@@ -101,4 +104,8 @@
     path:  /jars
     owner: vagrant
     mode: "0777"
+<<<<<<< HEAD
     recurse: true
+=======
+    recurse: true
+>>>>>>> b55aea96f62ec9624f426e976e7cd1291b471f59
