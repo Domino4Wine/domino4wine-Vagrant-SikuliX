@@ -102,3 +102,10 @@
     owner: vagrant
     mode: "0777"
     recurse: true
+- 
+  name: "Changing perm of Desktop"
+  file:
+    path:  /home/vagrant/Desktop
+    owner: vagrant
+    mode: "0777"
+    recurse: true
