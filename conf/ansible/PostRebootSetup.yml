@@ -1,0 +1,69 @@
+##################################################################################
+##################################################################################
+##    Copyright (C) 2019-present Prominic.NET, Inc.                             ##
+##                                                                              ##
+##    This program is free software: you can redistribute it and/or modify      ##
+##    it under the terms of the Server Side Public License, version 1,          ##
+##    as published by MongoDB, Inc.                                             ##
+##                                                                              ##
+##    This program is distributed in the hope that it will be useful,           ##
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of            ##
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             ##
+##    Server Side Public License for more details.                              ##
+##                                                                              ##
+##    You should have received a copy of the Server Side Public License         ##
+##    along with this program. If not, see:                                     ##
+##                                                                              ##
+##    http://www.mongodb.com/licensing/server-side-public-license               ##
+##                                                                              ##
+##    As a special exception, the copyright holders give permission to link the ##
+##    code of portions of this program with the OpenSSL library under certain   ##
+##    conditions as described in each individual source file and distribute     ##
+##    linked combinations including the program with the OpenSSL library. You   ##
+##    must comply with the Server Side Public License in all respects for       ##
+##    all of the code used other than as permitted herein. If you modify file(s)##
+##    with this exception, you may extend this exception to your version of the ##
+##    file(s), but you are not obligated to do so. If you do not wish to do so, ##
+##    delete this exception statement from your version. If you delete this     ##
+##    exception statement from all source files in the program, then also delete##
+##    it in the license file.                                                   ##
+##################################################################################
+##################################################################################
+--- 
+- 
+  become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/session/idle-delay
+    value: "uint32 0"
+  name: "Disabling Power savings and Lock Screen"
+- 
+  become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/screensaver/lock-enabled
+    value: "false"
+  name: "Disabling Power savings and Lock Screen"
+- 
+  become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/screensaver/idle-activation-enabled
+    value: "false"
+  name: "Disabling Power savings and Lock Screen"
+- 
+  become_user: vagrant
+  dconf: 
+    key: /org/gnome/desktop/screensaver/ubuntu-lock-on-suspend
+    value: "false"
+  name: "Disable Lock on suspend"
+- 
+  alternatives: 
+    name: java
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+  name: "correct java version selected"
+- 
+  become_user: vagrant
+  name: "Set Display to 1440x900"
+  shell: "Xvfb -ac :0 -screen 0 1440x900x24+32 & sleep 3 && export DISPLAY=:0"
+- 
+  become_user: vagrant
+  name: "Set Display to 1440x900"
+  shell: "export XAUTHORITY=/home/vagrant/.Xauthority"
