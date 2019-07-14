@@ -1,0 +1,9 @@
+KeyfileName=C:\Program Files\IBM\Notes\user.id
+Username=Mark D. Gilbert/A55D94/PNI
+Domino.Name=domino-42.prominic.net/PNI
+Domino.Address=domino-42.prominic.net
+Domino.Port=TCP/IP
+Domino.Server=1
+AdditionalServices=-1
+Replication.Threshold=3
+Replication.Schedule=1
