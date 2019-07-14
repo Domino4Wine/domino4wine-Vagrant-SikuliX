@@ -1,0 +1,31 @@
+---
+- 
+  name: "Remove IDE from Starting"
+  file: >
+    path=/etc/profile.d/Sikulix.sh
+    state=absent
+- 
+  copy: 
+    dest: /var/lib/jenkins/
+    directory_mode: true
+    owner: vagrant
+    group: vagrant
+    mode: u=rwX,g=rX,o=rX
+    src: /vagrant/jenkins/jobs
+  name: "Add Jenkins Jobs"
+- 
+  name: "Changing perm of Jenkins"
+  file: 
+    dest: /var/lib/jenkins/
+    owner: vagrant
+    group: vagrant
+    mode: u=rwX,g=rX,o=rX
+    recurse: yes
+- 
+  name: add Xvfb Plugin details
+  copy: 
+    src: /vagrant/jenkins/conf/org.jenkinsci.plugins.xvfb.Xvfb.xml
+    dest: /var/lib/jenkins/
+    owner: vagrant
+    group: vagrant
+    mode: u=rwX,g=rX,o=rX

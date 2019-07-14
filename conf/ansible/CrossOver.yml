@@ -1,0 +1,119 @@
+##################################################################################
+##################################################################################
+##    Copyright (C) 2019-present Prominic.NET, Inc.                             ##
+##                                                                              ##
+##    This program is free software: you can redistribute it and/or modify      ##
+##    it under the terms of the Server Side Public License, version 1,          ##
+##    as published by MongoDB, Inc.                                             ##
+##                                                                              ##
+##    This program is distributed in the hope that it will be useful,           ##
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of            ##
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             ##
+##    Server Side Public License for more details.                              ##
+##                                                                              ##
+##    You should have received a copy of the Server Side Public License         ##
+##    along with this program. If not, see:                                     ##
+##                                                                              ##
+##    http://www.mongodb.com/licensing/server-side-public-license               ##
+##                                                                              ##
+##    As a special exception, the copyright holders give permission to link the ##
+##    code of portions of this program with the OpenSSL library under certain   ##
+##    conditions as described in each individual source file and distribute     ##
+##    linked combinations including the program with the OpenSSL library. You   ##
+##    must comply with the Server Side Public License in all respects for       ##
+##    all of the code used other than as permitted herein. If you modify file(s)##
+##    with this exception, you may extend this exception to your version of the ##
+##    file(s), but you are not obligated to do so. If you do not wish to do so, ##
+##    delete this exception statement from your version. If you delete this     ##
+##    exception statement from all source files in the program, then also delete##
+##    it in the license file.                                                   ##
+##################################################################################
+##################################################################################
+--- 
+- 
+  delay: 5
+  get_url: 
+    dest: "/tmp/crossover_18.5.0-1.deb"
+    url: "https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_18.5.0-1.deb"
+  name: "Downloading  Crossover"
+  register: Crossover_source
+  retries: 5
+  until: "Crossover_source is success"
+- 
+  apt: 
+    deb: "/tmp/crossover_18.5.0-1.deb"
+  name: "Download and Install Crossover -- Takes about 5 Mins"
+  retries: 5
+  delay: 10
+  register: cxresult
+  until: cxresult is success
+- 
+  apt: 
+    name: "{{ packages }}"
+  name: "Installing Python and Screen"
+  retries: 5
+  delay: 10
+  register: screen
+  until: screen is success
+  vars: 
+    packages: 
+      - python-psutil
+      - python3
+      - python
+      - python3-pip
+      - python-pip
+      - virtualenv
+      - screen
+-
+  pip:
+    name: psutil
+- 
+  name: "Install extra Libraries and Drivers"
+  register: cxfixresults
+  shell: "/opt/cxoffice/bin/cxfix --auto --dry-run"
+- 
+  name: "Checking for Additional Libraries and Software:"
+  set_fact: 
+    results: "{{ cxfixresults.stdout | regex_search(regexp,'\\1') }}"
+  vars: 
+    regexp: \n(None)\n
+- 
+  debug: 
+    var: results
+  name: "Software Needed:"
+- 
+  copy: 
+    dest: /home/vagrant/Desktop/
+    src: /vagrant/Sikulix/deps/Sikuli.desktop
+  name: "Adding Desktop Icon for Sikulix"
+- 
+  name: Set Sikulix to start on User Login
+  file: >
+    src=/vagrant/Sikulix/deps/Sikulix.sh
+    dest=/etc/profile.d/Sikulix.sh
+    state=link
+- 
+  copy: 
+    dest: /home/vagrant/.config/autostart
+    src: /vagrant/jenkins/jenkins.desktop
+  name: "Adding Jenkins to Autostart"
+- 
+  name: "Changing perm of Desktop Icon"
+  file:
+    path:  /home/vagrant/Desktop/Sikuli.desktop
+    owner: vagrant
+    mode: "a+x"
+- 
+  name: "Changing perm of Jars"
+  file:
+    path:  /jars
+    owner: vagrant
+    mode: "0777"
+    recurse: true
+- 
+  name: "Changing perm of Desktop"
+  file:
+    path:  /home/vagrant/Desktop
+    owner: vagrant
+    mode: "0777"
+    recurse: true
