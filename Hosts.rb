@@ -66,8 +66,6 @@ class Hosts
         # VirtulBox machine configuration
         server.vm.provider :virtualbox do |vb|
           vb.name = host['identifier']
-          vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-          vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
           vb.customize ['modifyvm', :id, '--ostype', 'Ubuntu_64']
 		  vb.customize ['setextradata', 'global', 'GUI/MaxGuestResolution', 'any']
 		  vb.customize ['setextradata', :id, 'CustomVideoMode1', '1366x768x32']
@@ -104,10 +102,7 @@ class Hosts
         ##Start Ansible Loop
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "Setup.yml"
-          ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3",ip:host['ip'] }
-          ansible.compatibility_mode = "2.0"
-          ansible.install_mode = "pip"
-          ansible.version = "2.7.10"   
+          ansible.extra_vars = { ip:host['ip'] }
         end
         
          ##Restart VM to ensure that the GUI and Installations complete
@@ -116,10 +111,7 @@ class Hosts
          ##Start Ansible Loop after reboot
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "PostReboot.yml"
-          ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3",ip:host['ip']}
-          ansible.compatibility_mode = "2.0"
-          ansible.install_mode = "pip"
-          ansible.version = "2.7.10"   
+          ansible.extra_vars = { ip:host['ip']}
         end
         # Run custom provisioners
         if host.has_key?('provision')
