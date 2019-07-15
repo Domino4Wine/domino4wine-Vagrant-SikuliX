@@ -33,7 +33,7 @@ class Hosts
   def Hosts.configure(config, settings)
     # Configure scripts path variable
     scriptsPath = File.dirname(__FILE__) + '/scripts'
-
+    config.vagrant.plugins = ["vagrant-reload", "vagrant-disksize","vagrant-vbguest"]
     # Prevent TTY errors
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     config.ssh.forward_agent = true
