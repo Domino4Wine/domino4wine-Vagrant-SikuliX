@@ -1,9 +1,9 @@
 ﻿# domino4wine-Vagrant-SikuliX
-Primary goal is to use Vagrant on Windows, Mac, and Linux to deploy Crossover in an Ubuntu 18.04 VM, in order to automate how new builds of certain applications affect services we run. 
+Primary goal is to use Vagrant on Windows, Mac, and Linux to deploy Crossover in an Ubuntu 19.04 VM, in order to run regression tests and automating GUI based installations and configuration of applications.
 
-We will focus on IBM Notes, Designer and Administrator, then move on to other projects. 
+Our Primary Focus is on IBM Notes, Designer and Administrator, however this project is meant to be used as multi-tool for other projects that require GUI based automation.
 
-We will use branches for testing indvidual applications with the Master branch, by storing the Sikuli Scripts in the Branch and any additional files that are needed to get the application tested.
+We will keep the Master branch as the core of the project and any application that we want to Automate/Regression Test we will branch in order to compartmentalize the project for use with mutiple applications.
  
 ## Getting Started
 
@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You will need some software on your Desktop, Mac or other Machine, here are the most important:
+You will need some software on your PC or Mac:
 
 ```
 git
@@ -39,7 +39,7 @@ choco install virtualbox
 choco install git.install
 ```
 
-We would rather use Powershell:
+For those that need to run this in a Command Prompt, you can use this:
 
 CMD
 ```bat
@@ -50,7 +50,7 @@ choco install git.install
 ```
 
 #### Mac
-Just like Windows and other Linux repos, there is a similar package manager for Mac OSx, Homebrew, We will utilize that to install the prequsites.
+Just like Windows and other Linux repos, there is a similar package manager for Mac OS X, Homebrew, We will utilize that to install the prequsites. You will likley need to allow unauthenticated applications in the Mac OS X Security Settings, there are reports that Mac OS X Mojave will require some additional work to get running correctly.
 
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -82,40 +82,29 @@ APT
 sudo apt-get install virtualbox vagrant git-core -y 
 ```
 
-### Vagrant Plugins
-
-This project utlizes a few extra plugins provided by the Vagrant community, Once Vagrant has been installed, add these plugins:
-
-```shell
-vagrant plugin install vagrant-reload
-```
-
 ### Downloading domino4wine-Vagrant-SikuliX Project
 
 Open up a terminal and perform the following git command:
 
 ```shell
 git clone https://github.com/prominic/domino4wine-Vagrant-SikuliX.git
-cd domino4wine-Vagrant-SikuliX
+
 ```
+### Configuring the Environment
+Once you have navigated into the projects directory. You will need to modify the Hosts.yml to your specific Environment.
+Please set the configuration file with the correct, Network and Memory and CPU settings your host machine will allow.
 
-If you want to install a Branch Application follow use this:
+If you want to change to a different branch for different Application Builds, change the branch variable to that of an existing branch in this repo.
 
-```shell
-git clone -b  Domino-Notes https://github.com/prominic/domino4wine-Vagrant-SikuliX.git
-cd domino4wine-Vagrant-SikuliX
+Once you have configured the Hosts.yml file. You should now be set to go on getting the VM up and running.
+
+### Starting the VM
+The installation process is estimated to take about 15 - 30 Minutes
 ```
-
-### Starting Vagrant
-The installation process is estimated to take about 15 - 30 Minutes (mayber longer on older machines)
-
-#### Standard (DHCP)
-
-To start the project with DHCP (Most users) in mind, run:
-
-```shell
+cd domino4wine-Vagrant-SikuliX
+vi Hosts.yml
 vagrant up
-```
+
 #### Example of a Succesful run:
 
 <details><summary>Details:</summary>
@@ -308,63 +297,46 @@ default                    : ok=27   changed=24   unreachable=0    failed=0
 ```
 </p>
 </details>
-
-#### NOTE: If you are running this as a headless VM, ensure that you remove the line in the Vagrantfile: "vb.gui = true"
-
-If you are using the Static IP Scripts, then this will automatically started headless.
-
 ### Running Sikulix
 
-Once the VM has popped up on your Desktop, it will reboot once and do a final update check and it should automatically login to the Vagrant user account (in Progress).
+Once the VM has popped up on your Desktop, it will reboot once and do a final update check.
 
-If not, Login with the username Vagrant, and the Password Vagrant
+Once the VM is fully setup, You can either RDP into the VM or use the Virtualbox GUI to manage the VM. If you are using RDP, simply RDP to the IP you setup in the Host.yml
 
-Once logged in, the Sikulix Application will launch
+Login with the username Vagrant, and the Password Vagrant
 
-##### OR
+Once you are logged in, you can now launch Sikulix from the Desktop Icon.
 
-Then Launch Terminal:
-```shell
-sh /vagrant/Sikulix.sh
-```
+If you added a Branch to the Hosts.yml file, you can find the Sikulix scripts on the VM in the Vagrant Share folder. Which on the VM is at: /vagrant/Sikulix/scripts
+and on the Host: domino4wineprojectfolder/conf/Sikulix/scripts
 
-## Running the tests
- 
-Once Sikulix has loaded, if you have added the Branch for your application, you can find the scripts in /vagrant/(#branchname)
+We recommend testing the scripts on the VM, and then uploading them to Git from the Host.
 
-Open SikuliX and then select File open, Once opened, navigate to the aforementioned path and open the Sikulix file.
+### Installing IBM Notes
+Before you can run the Sikulix Jobs that will install Notes. You will need to place the Installer Files into their respective installation folders in the Vagrant Share folder.
 
-You can now Press run if your Sikuli Script doesn't require any other setup.
+#### Notes 9
+- Place the Base Installer EXE into Vagrant Shared folder, specfically: projectFolder/conf/AppInstall/ND9/base/
+- Place the latest Fix Pack Installer EXE into the Vagrant Shared Foldder, specfically: projectFolder/conf/AppInstall/ND9/FP/
+- Place the latest Hot Fix Installer EXE into the Vagrant Shared Foldder, specfically: projectFolder/conf/AppInstall/ND9/HF/
 
-To launch this automatically create a Jar file and place in .profile like the Sikulix Startup script  -- To Do
+#### Notes 10
+- Place the Base Installer EXE into Vagrant Shared folder, specfically: projectFolder/conf/AppInstall/ND10/base/
+- Place the latest Fix Pack Installer EXE into the Vagrant Shared Foldder, specfically: projectFolder/conf/AppInstall/ND10/FP/
+- Place the latest Hot Fix Installer EXE into the Vagrant Shared Foldder, specfically: projectFolder/conf/AppInstall/ND10/HF/
 
-### Break down into end to end tests
 
-#### Domino-Notes
+Once you have placed the files into the respective folders. You will then use a browser on your Host Machine, and navigate to http://IP.IN.HOST.YML:8080 which will show Jenkins and a list of Jobs that can be ran.
 
-Assuming you cloned the repository with the Branch clone command, the Domino-Notes
+Execute The Jobs in this order for the Version of Notes you respectively want to install:
+1) Install Notes Bottle
+2) Install Notes Base
+3) Install Notes Fix Pack
+4) Install Notes Hot Fix
 
-```
-Commands that enable Sikulix to run Domino Notes Scripts Automatically
+Later this is likley to be simplied to a Single task that calls each of these. This should open and install the the files you provided the VM, and setup the bottle with Notes.
 
-```
-
-Major Tasks
-Install Domino Designer, Administrator and Notes via SikuliX Script (Specifically logging which version which was used to compile)
-Open Notes
-Open Administrator
-Open Designer
-
-Minor Tasks: 
-See Domino-Notes Readme -- To be filled out
-
-#### Horizon-View
-
-Assuming you cloned the repository with the Branch clone command, the Horizon-View
-
-```
-To be filled out
-```
+You should at this point be able to launch Notes via CrossOver and Sign in.
 
 ## Built With
 * [Vagrant](https://www.vagrantup.com/) - Portable Development Environment Suite.
@@ -390,7 +362,7 @@ See also the list of [contributors](https://github.com/prominic/domino4wine-Vagr
 
 ## License
 
-This project is licensed under the SSLP v3 - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the SSLP v3 License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
