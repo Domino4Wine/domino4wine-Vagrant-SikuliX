@@ -329,7 +329,7 @@ sh /vagrant/Sikulix.sh
 ```
 
 ## Running the tests
-
+ 
 Once Sikulix has loaded, if you have added the Branch for your application, you can find the scripts in /vagrant/(#branchname)
 
 Open SikuliX and then select File open, Once opened, navigate to the aforementioned path and open the Sikulix file.
