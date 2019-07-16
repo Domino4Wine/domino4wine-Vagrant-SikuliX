@@ -31,6 +31,10 @@
 ##################################################################################
 --- 
 - 
+  name: Addint Python3 PSUtil
+  apt:
+    name: python3-psutil
+- 
   become_user: vagrant
   dconf: 
     key: /org/gnome/desktop/session/idle-delay
