@@ -30,4 +30,4 @@
 ##################################################################################
 ##################################################################################
 #!/bin/sh
-/usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar -q
