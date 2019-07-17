@@ -71,3 +71,19 @@
   become_user: vagrant
   name: "Set Display to 1440x900"
   shell: "export XAUTHORITY=/home/vagrant/.Xauthority"
+- 
+  copy: 
+    dest: /home/vagrant/Desktop/
+    src: /vagrant/Sikulix/deps/Sikuli.desktop
+  name: "Adding Desktop Icon for Sikulix"
+- 
+  copy: 
+    dest: /home/vagrant/.config/autostart
+    src: /vagrant/jenkins/jenkins.desktop
+  name: "Adding Jenkins to Autostart"
+- 
+  name: "Changing perm of Desktop Icon"
+  file:
+    path:  /home/vagrant/Desktop/Sikuli.desktop
+    owner: vagrant
+    mode: "a+x"
