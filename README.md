@@ -304,29 +304,11 @@ During this process the VM will restart twice, You will be promopted if you have
 
 Once the VM is fully setup, You should be able to RDP into the VM or use the Virtualbox GUI to manage the VM. If you are using RDP, simply RDP to the IP you setup in the Host.yml.
 
-##### Bug with RDP
-(At the beginning of the project, we wanted the user to not have to sign in when using the Virtualbox GUI. This creates a session and will prevent RDP from working.) -- Workaround -- Kill all instances of the Vagrant session. You can run this after using vagrant ssh to access the VM and then issuing a kill command to remove all instances of the Vagrant user.
-
-```
-sudo pkill -KILL -u vagrant
-```
-
-or via the Virtuablbox GUI if the GUI logged you in automatically, then go to the top right of the desktop and log out of the user Vagrant.
-
-Once we remove this, you should be able to RDP into your VM via the IP address you specified in the Host.yml, and you will be prompted after entering RDP for the login name and password. Login with the username Vagrant, and the Password Vagrant.
+You should be able to RDP into your VM via the IP address you specified in the Host.yml, and you will be prompted after entering RDP for the login name and password. Login with the username Vagrant, and the Password Vagrant.
 
 ### Running Sikulix
 
 Once you are logged in, you can now launch Sikulix from the Desktop Icon.
-
-#### Bug with Desktop Icons
-(in the current build, Desktop Icons are broken at this moment) T
-To launch Sikulix Without an desktop Icon run this command in a terminal on the VM: 
-
-```
-usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar
-```
-
 
 ## Location of Sikulix Scripts and Jenkins Jobs -- Important
 
