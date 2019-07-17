@@ -303,7 +303,7 @@ Before you can run the Sikulix Jobs that will install Notes. You will need to pl
 
 ### Installing Notes
 
-Once you have placed the files into the respective folders. You will then use a browser on your Host Machine, and navigate to http://IP.IN.HOST.YML:8080 which will show Jenkins and a list of Jobs that can be ran.
+Once you have placed the files into the respective folders. You will then use a browser on your Host Machine, and navigate to http://IP.IN.HOST.YML:8080  which will show Jenkins and a list of Jobs that can be ran.
 
 Execute The Jobs in this order for the Version of Notes you respectively want to install:
 1) Install Notes Bottle
