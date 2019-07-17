@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Terminal=true
+Terminal=false
 Icon[en_US]=gnome-panel-launcher
 Name[en_US]=Sikulix
-Exec=/vagrant/Sikulix/deps/Sikulix.sh
+Exec=/usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar -q
 Name=Sikulix
 Icon=/vagrant/Sikulix/deps/Sikuli.png
