@@ -21,9 +21,7 @@ Virtualbox
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-To ease deployment, we have a few handy scripts that will utlize a package manager for each OS to get the pre-requisite software for your host OS.
+To ease deployment, we have a few handy scripts that will utlize a package manager for each OS to get the pre-requisite software for your host OS. This is NOT required, this is to help you ensure you have all the applications that are neccessary to run this VM.
 
 #### Windows
 Powershell has a package manager named Chocalatey which is very similar to SNAP, YUM, or other Package manager, We will utilize that to quickly install Virtualbox, Vagrant and Git.
@@ -47,7 +45,7 @@ choco install git.install
 ```
 
 #### Mac
-Just like Windows and other Linux repos, there is a similar package manager for Mac OS X, Homebrew, We will utilize that to install the prequsites. You will likley need to allow unauthenticated applications in the Mac OS X Security Settings, there are reports that Mac OS X Mojave will require some additional work to get running correctly. You do NOT have to use these scripts to get the pre-requisites on your Mac, it is recommened. 
+Just like Windows and other Linux repos, there is a similar package manager for Mac OS X, Homebrew, We will utilize that to install the prequsites. You will likley need to allow unauthenticated applications in the Mac OS X Security Settings, there are reports that Mac OS X Mojave will require some additional work to get running correctly. You do NOT have to use these scripts to get the pre-requisites on your Mac, it is recommened, you simply need to make sure you have the 3 applications installed on your Mac.
 
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -91,7 +89,7 @@ git clone https://github.com/prominic/domino4wine-Vagrant-SikuliX.git
 Once you have navigated into the projects directory. You will need to modify the Hosts.yml to your specific Environment.
 Please set the configuration file with the correct, Network and Memory and CPU settings your host machine will allow, as these may vary from system to system, I cannot predict your Machines CPU and Network Requirements. You will need to make sure that you do not over allocate CPU, and RAM. In regards to Networking, you MUST change the networking, you will need to set the IP to that of one that is not in use by any other machine on your network.
 
-If you want to change to a different branch for different Application Builds, change the branch variable to that of an existing branch in this repo.
+If you want to change to a different branch for different Application Builds, change the branch variable to that of an existing branch in this repo, in the Hosts.yml
 
 ```
 cd domino4wine-Vagrant-SikuliX
@@ -302,18 +300,18 @@ default                    : ok=27   changed=24   unreachable=0    failed=0
 </details>
 
 
-Once the VM has popped up on your Desktop, it will reboot once and do a final update check.
+During this process the VM will restart twice, You will be promopted if you have multiple network cards, to select and active network card on your system.
 
 Once the VM is fully setup, You should be able to RDP into the VM or use the Virtualbox GUI to manage the VM. If you are using RDP, simply RDP to the IP you setup in the Host.yml.
 
-##### Bug
+##### Bug with RDP
 (At the beginning of the project, we wanted the user to not have to sign in when using the Virtualbox GUI. This creates a session and will prevent RDP from working.) -- Workaround -- Kill all instances of the Vagrant session. You can run this after using vagrant ssh to access the VM and then issuing a kill command to remove all instances of the Vagrant user.
 
 ```
 sudo pkill -KILL -u vagrant
 ```
 
-or via the Virtuablbox Gui, if the GUI logged you in automatically, then go to the top right of the desktop and log out of the user Vagrant.
+or via the Virtuablbox GUI if the GUI logged you in automatically, then go to the top right of the desktop and log out of the user Vagrant.
 
 Once we remove this, you should be able to RDP into your VM via the IP address you specified in the Host.yml, and you will be prompted after entering RDP for the login name and password. Login with the username Vagrant, and the Password Vagrant.
 
@@ -321,8 +319,9 @@ Once we remove this, you should be able to RDP into your VM via the IP address y
 
 Once you are logged in, you can now launch Sikulix from the Desktop Icon.
 
-#### Bug
-(in the current build, Desktop Icons are broken at this moment) to launch Sikulix Without an desktop Icon run this command: 
+#### Bug with Desktop Icons
+(in the current build, Desktop Icons are broken at this moment) T
+To launch Sikulix Without an desktop Icon run this command in a terminal on the VM: 
 
 ```
 usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar
@@ -337,7 +336,7 @@ This Folder on the VM, exists in the folder that you downloaded. So if you were 
 
 We recommend testing the scripts on the VM, and then uploading them to Git from the Host.
 
-### Installing IBM Notes
+### Moving IBM Notes Installers to the VM
 Before you can run the Sikulix Jobs that will install Notes. You will need to place the Installer Files into their respective installation folders in the Vagrant Share folder.
 
 #### Notes 9
@@ -349,6 +348,8 @@ Before you can run the Sikulix Jobs that will install Notes. You will need to pl
 - Place the Base Installer EXE into Vagrant Shared folder,  on the host it would be: projectFolder/conf/AppInstall/ND10/base/
 - Place the latest Fix Pack Installer EXE into the Vagrant Shared Foldder,  on the host it would be: projectFolder/conf/AppInstall/ND10/FP/
 - Place the latest Hot Fix Installer EXE into the Vagrant Shared Foldder, on the host it would be: projectFolder/conf/AppInstall/ND10/HF/
+
+### Installing Notes
 
 Once you have placed the files into the respective folders. You will then use a browser on your Host Machine, and navigate to http://IP.IN.HOST.YML:8080 which will show Jenkins and a list of Jobs that can be ran.
 
@@ -363,6 +364,17 @@ Right now, I recommend to manually install Notes on top of Crossover as the Siku
 Later this is likley to be simplied to a Single task that calls each of these. This should open and install the the files you provided the VM, and setup the bottle with Notes.
 
 You should at this point be able to launch Notes via CrossOver and Sign in.
+
+
+### Manual Notes installation -- Since the Sikulix Scripts need more work.
+
+Assuming you have placed the installer files in the above directories for each respective version, IE, base, Fix Pack and Hot Fixes, you will then Open up CrossOver. You will then Click on Install Software. This will bring up a new Window with a Search Bar. Before we can install Notes, we need to prepare the Crossover Bottle. You can do this by typing IBM Notes, and selecting the entry with Domino4wine (The name will change once Crossover Approves our Latest Crosstie), This will install Flash, IE, Firefox, C++, Fonts, and other required software. 
+
+Once the Bottle has been created. Clone the Bottle so  that you have a clean instance of the bottle to use for multiple projects. You can do this by right clicking on the bottle you just made and clicking duplicate. Once Duplicated, select the cloned Bottle, rename it appropriately.  
+
+Now the Bottle has been cloned, You can install Notes 9 and Notes 10. To do this, Select the newly cloned bottle, and click Install Software. You will get the same prompt as you did when you created the Bottle. In the Search Field, type the work "unlisted" and select that option. Next, Select the Installer File, Then select browse file system and navigate to the Vagrant Share folder on the VM, again this is on the ROOT of the VM, in the vagrant folder. If you placed the files into the respective folders as stated above. You can find your installer in that folder. Next you should be able to click the Finish Button on the Crossover Window, and it will begin installing Notes into the bottle you cloned. You will need to go through the standard Notes installation, DO NOT have to extract the installer to a temp directory.
+
+After Notes Finishes installation, repeat the same procedure for the Fix Packs and then for the Hot Fixes.
 
 ## Built With
 * [Vagrant](https://www.vagrantup.com/) - Portable Development Environment Suite.
