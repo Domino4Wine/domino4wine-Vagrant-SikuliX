@@ -30,16 +30,4 @@
 ##################################################################################
 ##################################################################################
 #!/bin/sh
-if [ -z "$DISPLAY" ]
-then
-      echo "\$DISPLAY is NULL, not starting Sikulix"
-else
-      echo "\$DISPLAY is $DISPLAY"
-      echo "Starting Sikulix in Screen Session"
-      xrandr  -d :0 --newmode "1440x900_60.00"  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-      xrandr  -d :0 --addmode VGA-1 1440x900_60.00
-      xrandr -d :0 --output VGA-1 --mode "1440x900_60.00"
-      screen -dmS Sikulix  /usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar 
-      sleep 3
-      echo "Done"
-fi
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -jar /jars/sikulix.jar
