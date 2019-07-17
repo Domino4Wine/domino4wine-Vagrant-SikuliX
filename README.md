@@ -282,7 +282,7 @@ Once you are logged in, you can now launch Sikulix from the Desktop Icon.
 
 ## Location of Sikulix Scripts and Jenkins Jobs -- Important
 
-On the VM, you can find the Sikulix Scripts on the ROOT of The VMs drive. In the VM use the File Explorer to navigate to the ROOT of the drive. Then open up the /vagrant folder/ This folder is shared with your Host Machine, any file you place in this will be accessible to both machines. 
+On the VM, you can find the Sikulix Scripts on the ROOT of The VMs drive. In the VM use the File Explorer to navigate to the ROOT of the drive. Then open up the /vagrant folder. This folder is shared with your Host Machine, any file you place in this will be accessible to both machines. 
 
 This Folder on the VM, exists in the folder that you downloaded. So if you were on your Desktop and ran the git command, You would go to your desktop, then into the Vagrant Project Folder, then to the "conf" folder. If you  look closely you will see the same files that are on the Vagrant VM. in the Vagrant Share folder.
 
