@@ -113,188 +113,158 @@ vagrant up
 #### Example of a Succesful run:
 
 ```powershell
-PS C:\Users\Markg\domino4wine-Vagrant-SikuliX> vagrant up
-Bringing machine 'default' up with 'virtualbox' provider...
-==> default: Importing base box 'ubuntu/bionic64'...
-==> default: Matching MAC address for NAT networking...
-==> default: Checking if box 'ubuntu/bionic64' version '20190411.0.0' is up to date...
-==> default: Setting the name of the VM: domino4wine-Vagrant-SikuliX_default_1555657863340_92999
-==> default: Clearing any previously set network interfaces...
-==> default: Specific bridge '1) ensp2' not found. You may be asked to specify
-==> default: which network to bridge to.
-==> default: Preparing network interfaces based on configuration...
-    default: Adapter 1: nat
-    default: Adapter 2: bridged
-==> default: Forwarding ports...
-    default: 22 (guest) => 2222 (host) (adapter 1)
-==> default: Running 'pre-boot' VM customizations...
-==> default: Resized disk: old 10240 MB, req 15360 MB, new 15360 MB
-==> default: You may need to resize the filesystem from within the guest.
-==> default: Booting VM...
-==> default: Waiting for machine to boot. This may take a few minutes...
-    default: SSH address: 127.0.0.1:2222
-    default: SSH username: vagrant
-    default: SSH auth method: private key
-    default: Warning: Connection reset. Retrying...
-    default: Warning: Connection aborted. Retrying...
-    default:
-    default: Vagrant insecure key detected. Vagrant will automatically replace
-    default: this with a newly generated keypair for better security.
-    default:
-    default: Inserting generated public key within guest...
-    default: Removing insecure key from the guest if it's present...
-    default: Key inserted! Disconnecting and reconnecting using new SSH key...
-==> default: Machine booted and ready!
-==> default: Checking for guest additions in VM...
-    default: The guest additions on this VM do not match the installed version of
-    default: VirtualBox! In most cases this is fine, but in rare cases it can
-    default: prevent things such as shared folders from working properly. If you see
-    default: shared folder errors, please make sure the guest additions within the
-    default: virtual machine match the version of VirtualBox you have installed on
-    default: your host and reload your VM.
-    default:
-    default: Guest Additions Version: 5.2.18
-    default: VirtualBox Version: 6.0
-==> default: Configuring and enabling network interfaces...
-==> default: Mounting shared folders...
-    default: /sikulix => C:/Users/Markg/domino4wine-Vagrant-SikuliX/vagrant/install
-    default: /vagrant => C:/Users/Markg/domino4wine-Vagrant-SikuliX/vagrant
-==> default: Running provisioner: ansible_local...
-    default: Installing Ansible...
-    default: Running ansible-playbook...
- [WARNING]: file /vagrant/tasks/Domino-Notes.yml is empty and had no tasks to
-include
+ vagrant up
+==> domino4wine: Checking if box 'Makr44/Sikulix-19.04' version '0.0.1563344996' is up to date...
+==> domino4wine: Clearing any previously set forwarded ports...
+==> domino4wine: Fixed port collision for 22 => 2222. Now on port 2200.
+==> domino4wine: Clearing any previously set network interfaces...
+==> domino4wine: Specific bridge '1) Bridge' not found. You may be asked to specify
+==> domino4wine: which network to bridge to.
+==> domino4wine: Available bridged network interfaces:
+1) enp4s0
+2) enp7s0f0
+3) enp7s0f1
+4) enp8s0f0
+5) enp8s0f1
+6) enp2s0
+==> domino4wine: When choosing an interface, it is usually the one that is
+==> domino4wine: being used to connect to the internet.
+    domino4wine: Which interface should the network bridge to? 1
+==> domino4wine: Preparing network interfaces based on configuration...
+    domino4wine: Adapter 1: nat
+    domino4wine: Adapter 2: bridged
+==> domino4wine: Forwarding ports...
+    domino4wine: 22 (guest) => 2200 (host) (adapter 1)
+==> domino4wine: Running 'pre-boot' VM customizations...
+==> domino4wine: Booting VM...
+==> domino4wine: Waiting for machine to boot. This may take a few minutes...
+    domino4wine: SSH address: 127.0.0.1:2200
+    domino4wine: SSH username: vagrant
+    domino4wine: SSH auth method: private key
+==> domino4wine: Machine booted and ready!
+[domino4wine] GuestAdditions 6.0.8 running --- OK.
+==> domino4wine: Checking for guest additions in VM...
+==> domino4wine: Setting hostname...
+==> domino4wine: Configuring and enabling network interfaces...
+==> domino4wine: Mounting shared folders...
+    domino4wine: /vagrant => /root/domino4wine-Vagrant-SikuliX-19.04/conf
+==> domino4wine: Running provisioner: shell...
+    domino4wine: Running: /tmp/vagrant-shell20190717-30483-1ezd73i.sh
+    domino4wine: A Branch is specified, Adding Branch Domino-Notes
+    domino4wine: Cloning into '/temp'...
+==> domino4wine: Running provisioner: ansible_local...
+    domino4wine: Running ansible-playbook...
 
 PLAY [all] *********************************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [default]
+ok: [domino4wine]
 
-TASK [Enabling i386 Repo for Crossover and Updating Sources] *******************
-changed: [default]
+TASK [Running Tasks] ***********************************************************
+included: /vagrant/ansible/extras/Domino-Notes.yml for domino4wine => (item=/vagrant/ansible/extras/Domino-Notes.yml)
 
-TASK [Disable IPv6 with sysctl] ************************************************
-changed: [default] => (item=net.ipv6.conf.all.disable_ipv6)
-changed: [default] => (item=net.ipv6.conf.default.disable_ipv6)
-changed: [default] => (item=net.ipv6.conf.lo.disable_ipv6)
+TASK [Remove IDE from Starting] ************************************************
+ok: [domino4wine]
 
-TASK [Adding additional Repos] *************************************************
-changed: [default]
+TASK [Add Jenkins Jobs] ********************************************************
+changed: [domino4wine]
 
-TASK [Updating via apt-get update] *********************************************
-changed: [default]
+TASK [Changing perm of Jenkins] ************************************************
+changed: [domino4wine]
 
-TASK [Install Desktop, Java 11, and XRDP -- Takes about 25 Mins] ***************
-changed: [default]
-
-TASK [Ensure ansible-cache directory exists] ***********************************
-changed: [default]
-
-TASK [Install Required SikuliX Dependencies -- Takes about 5 Mins] *************
-changed: [default]
-
-TASK [Downloading Leptonica sources] *******************************************
-changed: [default]
-
-TASK [Unpacking Leptonica] *****************************************************
-changed: [default]
-
-TASK [Configuring leptonica source] ********************************************
-changed: [default]
-
-TASK [Installing Leptonica -- Takes about 7 Mins] ******************************
-changed: [default]
-
-TASK [Downloading tesseract sources] *******************************************
-changed: [default]
-
-TASK [Unpacking tesseract] *****************************************************
-changed: [default]
-
-TASK [Configuring tesseract source] ********************************************
-changed: [default]
-
-TASK [Installing tesseract -- Takes about 10 Mins] *****************************
-changed: [default]
-
-TASK [Adding Desktop Icon for Sikulix] *****************************************
-changed: [default]
-
-TASK [Set Sikulix to start on User Login] **************************************
-changed: [default]
-
-TASK [Setting Automatic Login to True] *****************************************
-changed: [default]
-
-TASK [Setting Automatic Login to Vagrant] **************************************
-changed: [default]
-
-TASK [Set Add OpenCV to Bin] ***************************************************
-changed: [default]
-
-TASK [Changing perm of Desktop Icon] *******************************************
-changed: [default]
-
-TASK [Install Required Dependencies for Crossover -- Takes about 3 Mins] *******
-changed: [default]
-
-TASK [Download and Install Crossover -- Takes about 5 Mins] ********************
-changed: [default]
-
-TASK [Install extra Libraries and Drivers] *************************************
-changed: [default]
-
-TASK [Checking for Additional Libraries and Software:] *************************
-ok: [default]
-
-TASK [Software Needed:] ********************************************************
-ok: [default] => {
-    "results": [
-        "None"
-    ]
-}
+TASK [add Xvfb Plugin details] *************************************************
+ok: [domino4wine]
 
 PLAY RECAP *********************************************************************
-default                    : ok=27   changed=24   unreachable=0    failed=0
+domino4wine                : ok=6    changed=2    unreachable=0    failed=0
 
-==> default: Running provisioner: reload...
-==> default: Attempting graceful shutdown of VM...
-==> default: Checking if box 'ubuntu/bionic64' version '20190411.0.0' is up to date...
-==> default: Clearing any previously set forwarded ports...
-==> default: Clearing any previously set network interfaces...
-==> default: Specific bridge '1) ensp2' not found. You may be asked to specify
-==> default: which network to bridge to.
-==> default: Preparing network interfaces based on configuration...
-    default: Adapter 1: nat
-    default: Adapter 2: bridged
-==> default: Forwarding ports...
-    default: 22 (guest) => 2222 (host) (adapter 1)
-==> default: Running 'pre-boot' VM customizations...
-==> default: Booting VM...
-==> default: Waiting for machine to boot. This may take a few minutes...
-    default: Warning: Connection reset. Retrying...
-    default: Warning: Connection aborted. Retrying...
-==> default: Machine booted and ready!
-==> default: Checking for guest additions in VM...
-    default: The guest additions on this VM do not match the installed version of
-    default: VirtualBox! In most cases this is fine, but in rare cases it can
-    default: prevent things such as shared folders from working properly. If you see
-    default: shared folder errors, please make sure the guest additions within the
-    default: virtual machine match the version of VirtualBox you have installed on
-    default: your host and reload your VM.
-    default:
-    default: Guest Additions Version: 5.2.18
-    default: VirtualBox Version: 6.0
-==> default: Configuring and enabling network interfaces...
-==> default: Mounting shared folders...
-    default: /sikulix => C:/Users/Markg/domino4wine-Vagrant-SikuliX/vagrant/install
-==> default: Detected mount owner ID within mount options. (uid: 1000 guestpath: /sikulix)
-==> default: Detected mount group ID within mount options. (gid: 1000 guestpath: /sikulix)
-    default: /vagrant => C:/Users/Markg/domino4wine-Vagrant-SikuliX/vagrant
-==> default: Detected mount owner ID within mount options. (uid: 1000 guestpath: /vagrant)
-==> default: Detected mount group ID within mount options. (gid: 1000 guestpath: /vagrant)
-==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
-==> default: flag to force provisioning. Provisioners marked to run always will still run.
+==> domino4wine: Running provisioner: reload...
+==> domino4wine: Attempting graceful shutdown of VM...
+==> domino4wine: Checking if box 'Makr44/Sikulix-19.04' version '0.0.1563344996' is up to date...
+==> domino4wine: Clearing any previously set forwarded ports...
+==> domino4wine: Clearing any previously set network interfaces...
+==> domino4wine: Specific bridge '1) Bridge' not found. You may be asked to specify
+==> domino4wine: which network to bridge to.
+==> domino4wine: Available bridged network interfaces:
+1) enp4s0
+2) enp7s0f0
+3) enp7s0f1
+4) enp8s0f0
+5) enp8s0f1
+6) enp2s0
+==> domino4wine: When choosing an interface, it is usually the one that is
+==> domino4wine: being used to connect to the internet.
+    domino4wine: Which interface should the network bridge to? 1
+==> domino4wine: Preparing network interfaces based on configuration...
+    domino4wine: Adapter 1: nat
+    domino4wine: Adapter 2: bridged
+==> domino4wine: Forwarding ports...
+    domino4wine: 22 (guest) => 2200 (host) (adapter 1)
+==> domino4wine: Running 'pre-boot' VM customizations...
+==> domino4wine: Booting VM...
+==> domino4wine: Waiting for machine to boot. This may take a few minutes...
+==> domino4wine: Machine booted and ready!
+[domino4wine] GuestAdditions 6.0.8 running --- OK.
+==> domino4wine: Checking for guest additions in VM...
+==> domino4wine: Setting hostname...
+==> domino4wine: Configuring and enabling network interfaces...
+==> domino4wine: Mounting shared folders...
+    domino4wine: /vagrant => /root/domino4wine-Vagrant-SikuliX-19.04/conf
+==> domino4wine: Detected mount owner ID within mount options. (uid: 900 guestpath: /vagrant)
+==> domino4wine: Detected mount group ID within mount options. (gid: 900 guestpath: /vagrant)
+==> domino4wine: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> domino4wine: flag to force provisioning. Provisioners marked to run always will still run.
+==> domino4wine: Running provisioner: ansible_local...
+    domino4wine: Running ansible-playbook...
+
+PLAY [all] *********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [domino4wine]
+
+TASK [Addint Python3 PSUtil] ***************************************************
+ok: [domino4wine]
+
+TASK [Disabling Power savings and Lock Screen] *********************************
+ok: [domino4wine]
+
+TASK [Disabling Power savings and Lock Screen] *********************************
+ok: [domino4wine]
+
+TASK [Disabling Power savings and Lock Screen] *********************************
+ok: [domino4wine]
+
+TASK [Disable Lock on suspend] *************************************************
+ok: [domino4wine]
+
+TASK [correct java version selected] *******************************************
+ok: [domino4wine]
+
+TASK [Set Display to 1440x900] *************************************************
+changed: [domino4wine]
+
+TASK [Set Display to 1440x900] *************************************************
+changed: [domino4wine]
+
+TASK [Adding Desktop Icon for Sikulix] *****************************************
+changed: [domino4wine]
+
+TASK [Adding Jenkins to Autostart] *********************************************
+changed: [domino4wine]
+
+TASK [Changing perm of Desktop Icon] *******************************************
+changed: [domino4wine]
+
+PLAY RECAP *********************************************************************
+domino4wine                : ok=12   changed=5    unreachable=0    failed=0
+
+==> domino4wine: Running provisioner: shell...
+    domino4wine: Running: /tmp/vagrant-shell20190717-30483-2q9v98.sh
+    domino4wine: alias ..='cd ..'
+    domino4wine: alias ...='cd ../..'
+    domino4wine: alias h='cd ~'
+    domino4wine: alias c='clear'
+    domino4wine: alias ll='ls -la'
 ```
 </p>
 </details>
