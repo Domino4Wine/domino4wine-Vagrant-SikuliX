@@ -46,7 +46,7 @@ projectFolder/conf/AppInstall/ND10/HF/
 
 ### 13) *vagrant up*
 
-### 14) *vagrant up*  again after the plugins install
+### 14) *vagrant up* If prompted due to plugin installation.
 
 ### 15) Navigate to http://IP.IN.HOST.YML:8080
 
