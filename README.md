@@ -18,6 +18,11 @@ git
 Vagrant
 Virtualbox
 ```
+### QuickStart Links
+
+Mac OS X 10.14.5 -- https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/MacMojaveReadme.md
+Windows 10 and Server 2016 and above -- https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/Win10ReadMe.md
+
 
 ### Installing
 
