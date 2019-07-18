@@ -1,1 +1,1 @@
-Please place the Hot Fix Installer here
+Please place the Notes 10 Hot Fix Installer here
