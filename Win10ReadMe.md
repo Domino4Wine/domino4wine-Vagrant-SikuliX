@@ -42,15 +42,17 @@ projectFolder/conf/AppInstall/ND10/HF/
 
 ### 12) vagrant up
 
-### 13) Navigate to http://IP.IN.HOST.YML:8080
+### 13) vagrant up -- Only if the Plugins weren't initially installed
 
-### 14) Right Click on "DominoNotesBottle" and select Build
+### 14) Navigate to http://IP.IN.HOST.YML:8080
 
-### 15) Once the Builds have completed, RDP into VM to IP.IN.HOST.YML 
+### 15) Right Click on "DominoNotesBottle" and select Build
 
-### 16) Login to XRDP with vagrant vagrant
+### 16) Once the Builds have completed, RDP into VM to IP.IN.HOST.YML 
 
-### 17) Notes Should be installed
+### 17) Login to XRDP with vagrant vagrant
+
+### 18) Notes Should be installed
 
 
 
