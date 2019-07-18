@@ -1,16 +1,16 @@
 ## Here are the Order of Operations for Mac OS X 10.14.5 in order to get this project up and running:
 
-### 1) /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+### 1) */usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"*
 
-### 2) brew cask install virtualbox
+### 2) *brew cask install virtualbox*
 
-### 3) brew cask install vagrant
+### 3) *brew cask install vagrant*
 
-### 4) brew cask install vagrant-manager
+### 4) *brew cask install vagrant-manager*
 
-### 5) brew install git
+### 5) *brew install git*
 
-### 6) git clone https://github.com/prominic/domino4wine-Vagrant-SikuliX.git
+### 6) *git clone https://github.com/prominic/domino4wine-Vagrant-SikuliX.git*
 
 ### 7) navigate to the project directory, by default this is: domino4wine-Vagrant-SikuliX
 
@@ -42,7 +42,7 @@ projectFolder/conf/AppInstall/ND10/FP/
 
 projectFolder/conf/AppInstall/ND10/HF/
 
-### 13) vagrant up
+### 13) *vagrant up*
 
 ### 14) Navigate to http://IP.IN.HOST.YML:8080
 
