@@ -16,6 +16,8 @@
 
 ### 8) Edit the Hosts.yml with your favorite Text Editor
 
+![GitHub Logo](/conf/wiki/images/hosts.yml.png)
+
 ### 9) Download if you do not already have the base install files and fixpack and hot fixes:
 
 Register for a Trial: https://www.ibm.com/account/reg/us-en/signup?formid=urx-33713
