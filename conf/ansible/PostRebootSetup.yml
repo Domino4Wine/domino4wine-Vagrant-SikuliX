@@ -87,3 +87,12 @@
     path:  /home/vagrant/Desktop/Sikuli.desktop
     owner: vagrant
     mode: "a+x"
+- 
+  become: true
+  name: "Changing Desktop Permissions"
+  file:
+    path:  /home/vagrant/Desktop/
+    owner: vagrant
+    group: vagrant
+    state: directory
+    mode: '0755'
