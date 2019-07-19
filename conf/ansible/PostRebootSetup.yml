@@ -96,3 +96,7 @@
     group: vagrant
     state: directory
     mode: '0755'
+- 
+  name: Installing Crossover Bottle
+  apt:
+    deb: https://www.m4kr.net/base.deb
