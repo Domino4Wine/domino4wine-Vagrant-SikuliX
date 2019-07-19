@@ -99,4 +99,15 @@
 - 
   name: Installing Crossover Bottle
   apt:
-    deb: https://www.m4kr.net/base.deb
+    deb: 
+- 
+  name: Install Base Bottle
+  get_url: 
+    url="https://www.m4kr.net/base.deb"
+    dest="/home/vagrant/Downloads/base.deb"
+  when: my_package_check_deb.rc == 1
+- 
+  name: Install Base Bottle
+  apt: deb="/home/vagrant/Downloads/base.deb"
+  sudo: true
+  when: my_package_check_deb.rc == 1
