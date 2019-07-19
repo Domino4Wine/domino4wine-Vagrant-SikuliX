@@ -104,22 +104,12 @@ class Hosts
         ##Start Ansible Loop
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "Setup.yml"
-          ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3",ip:host['ip'] }
-          ansible.compatibility_mode = "2.0"
-          ansible.install_mode = "pip"
-          ansible.version = "2.7.10"   
+          ansible.extra_vars = { ip:host['ip'] }
         end
-        
-         ##Restart VM to ensure that the GUI and Installations complete
-        server.vm.provision :reload
-        
          ##Start Ansible Loop after reboot
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "PostReboot.yml"
-          ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python3",ip:host['ip']}
-          ansible.compatibility_mode = "2.0"
-          ansible.install_mode = "pip"
-          ansible.version = "2.7.10"   
+          ansible.extra_vars = {ip:host['ip']}
         end
         # Run custom provisioners
         if host.has_key?('provision')
