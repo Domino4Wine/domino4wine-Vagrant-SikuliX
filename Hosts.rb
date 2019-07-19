@@ -104,10 +104,6 @@ class Hosts
           ansible.playbook = "Setup.yml"
           ansible.extra_vars = { ip:host['ip'] }
         end
-        
-         ##Restart VM to ensure that the GUI and Installations complete
-        server.vm.provision :reload
-        
          ##Start Ansible Loop after reboot
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "PostReboot.yml"
