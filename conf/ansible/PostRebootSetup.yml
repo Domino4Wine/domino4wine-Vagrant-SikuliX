@@ -31,7 +31,7 @@
 ##################################################################################
 --- 
 - 
-  name: Addint Python3 PSUtil
+  name: Adding Python3 PSUtil
   apt:
     name: python3-psutil
 - 
