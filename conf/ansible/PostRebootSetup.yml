@@ -151,6 +151,15 @@
     state: directory
     mode: '0755'
 - 
+  become: true
+  name: "Adding HTML5 to Desktop for Ease of Access"
+  file:
+    path:  /home/vagrant/Desktop/HTML5
+    owner: vagrant
+    group: vagrant
+    state: directory
+    mode: '0755'
+- 
   name: Mounting Vagrant-Share Jobs to Desktop folder
   mount:
     path: /home/vagrant/Desktop/Vagrant-Share
@@ -182,4 +191,11 @@
     opts: bind
     state: mounted
     fstype: none
-
+- 
+  name: Mounting HTML5 Download Folder
+  mount:
+    path: /home/vagrant/Desktop/HTML5
+    src: /home/vagrant/thinclient_drives/GUACFS/Download
+    opts: bind
+    state: mounted
+    fstype: none
