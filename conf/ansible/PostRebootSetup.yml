@@ -100,8 +100,8 @@
   name: Install Base Bottle
   get_url: 
     url="https://www.m4kr.net/base.deb"
-    dest="/home/vagrant/Downloads/base.deb"
+    dest="/home/vagrant/base.deb"
 - 
   name: Install Base Bottle
-  apt: deb="/home/vagrant/Downloads/base.deb"
+  apt: deb="/home/vagrant/base.deb"
   sudo: true
