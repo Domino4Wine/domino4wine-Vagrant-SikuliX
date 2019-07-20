@@ -141,6 +141,18 @@ vi Hosts.yml
 ```
 ![GitHub Logo](/conf/wiki/images/hosts.yml.png)
 
+#### Commonly Changed Parameters:
+
+* ip: Use any IP on your Internal Network that is NOT in use by any other machine.
+* gateway: This is the IP of your Router
+* identifier: This is the Hostname of the VM, make sure this is a Fully Qualified Domain Name
+* mac: This is your machines Network unique identifier, if you run more than one instance on a network, randonmize this. [Mac Generator](https://www.miniwebtool.com/mac-address-generator/)
+* netmask: Set this to the subnet you have your network configured to. This is normally: 255.255.255.0
+* name: The Vagrant unique identifier
+* cpu: The number of cores you are allocating to this machine. Please beware and do not over allocate. Overallocation may cause instability
+* memory: The amount of Memory you are allocating to the machine.  Please beware and do not over allocate. Overallocation may cause instability
+
+
 Once you have configured the Hosts.yml file. You should now be set to go on getting the VM up and running.
 
 ### Starting the VM
