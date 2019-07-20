@@ -33,7 +33,7 @@ class Hosts
   def Hosts.configure(config, settings)
     # Configure scripts path variable
     scriptsPath = File.dirname(__FILE__) + '/scripts'
-    config.vagrant.plugins = ["vagrant-reload", "vagrant-disksize","vagrant-vbguest"]
+
     # Prevent TTY errors
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     config.ssh.forward_agent = true
@@ -66,8 +66,6 @@ class Hosts
         # VirtulBox machine configuration
         server.vm.provider :virtualbox do |vb|
           vb.name = host['identifier']
-          vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-          vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
           vb.customize ['modifyvm', :id, '--ostype', 'Ubuntu_64']
 		  vb.customize ['setextradata', 'global', 'GUI/MaxGuestResolution', 'any']
 		  vb.customize ['setextradata', :id, 'CustomVideoMode1', '1366x768x32']
@@ -109,7 +107,7 @@ class Hosts
          ##Start Ansible Loop after reboot
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "PostReboot.yml"
-          ansible.extra_vars = {ip:host['ip']}
+          ansible.extra_vars = { ip:host['ip']}
         end
         # Run custom provisioners
         if host.has_key?('provision')
