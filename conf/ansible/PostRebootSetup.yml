@@ -70,10 +70,6 @@
 - 
   become_user: vagrant
   name: "Set Display to 1440x900"
-  shell: "Xvfb -ac :0 -screen 0 1440x900x24+32 & sleep 3 && export DISPLAY=:0"
-- 
-  become_user: vagrant
-  name: "Set Display to 1440x900"
   shell: "export XAUTHORITY=/home/vagrant/.Xauthority"
 - 
   copy: 
@@ -112,3 +108,9 @@
 - 
   name: Installing Base Bottle
   command: sudo dpkg -i /home/vagrant/base.deb
+- 
+  name: "Starting Jenkins Service"
+  service: 
+    enabled: false
+    name: jenkins
+    state: restarted
