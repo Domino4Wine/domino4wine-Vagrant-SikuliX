@@ -142,6 +142,15 @@
     state: directory
     mode: '0755'
 - 
+  become: true
+  name: "Adding Sikulix Scripts to Desktop for Ease of Access"
+  file:
+    path:  /home/vagrant/Desktop/AppInstall
+    owner: vagrant
+    group: vagrant
+    state: directory
+    mode: '0755'
+- 
   name: Mounting Vagrant-Share Jobs to Desktop folder
   mount:
     path: /home/vagrant/Desktop/Vagrant-Share
@@ -165,3 +174,12 @@
     opts: bind
     state: mounted
     fstype: none
+- 
+  name: Mounting AppInstall to Desktop
+  mount:
+    path: /home/vagrant/Desktop/AppInstall
+    src: /home/vagrant/Desktop/Vagrant-Share/AppInstall
+    opts: bind
+    state: mounted
+    fstype: none
+
