@@ -114,3 +114,54 @@
     enabled: false
     name: jenkins
     state: restarted
+- 
+  become: true
+  name: "Adding Vagrant-Share to Desktop  for Ease of Access"
+  file:
+    path:  /home/vagrant/Desktop/Vagrant-Share
+    owner: vagrant
+    group: vagrant
+    state: directory
+    mode: '0755'
+- 
+  become: true
+  name: "Adding Jenkins-Jobs to Desktop  for Ease of Access"
+  file:
+    path:  /home/vagrant/Desktop/Jenkins-Jobs
+    owner: vagrant
+    group: vagrant
+    state: directory
+    mode: '0755'
+- 
+  become: true
+  name: "Adding Sikulix Scripts to Desktop for Ease of Access"
+  file:
+    path:  /home/vagrant/Desktop/Sikulix-Scripts
+    owner: vagrant
+    group: vagrant
+    state: directory
+    mode: '0755'
+- 
+  name: Mounting Vagrant-Share Jobs to Desktop folder
+  mount:
+    path: /home/vagrant/Desktop/Vagrant-Share
+    src: /vagrant
+    opts: bind
+    state: mounted
+    fstype: none
+- 
+  name: Mounting Sikulix Scripts to Desktop folder
+  mount:
+    path: /home/vagrant/Desktop/Sikulix-Scripts
+    src: /home/vagrant/Desktop/Vagrant-Share/Sikulix/scripts
+    opts: bind
+    state: mounted
+    fstype: none
+- 
+  name: Mounting Jenkins Jobs to Desktop folder
+  mount:
+    path: /home/vagrant/Desktop/Jenkins-Jobs
+    src: /home/vagrant/Desktop/Vagrant-Share/jenkins/jobs
+    opts: bind
+    state: mounted
+    fstype: none
