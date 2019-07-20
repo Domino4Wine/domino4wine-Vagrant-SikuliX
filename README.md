@@ -31,8 +31,9 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#downloading-domino4wine-vagrant-sikulix-project-to-a-local-folder)
-    * [Mac OS X](https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/MacMojaveReadme.md)
-    * [Windows](https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/Win10ReadMe.md)
+    * [Mac OS X](https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/MacMojaveReadme.md) -- Quick Start
+    * [Windows](https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/Win10ReadMe.md) -- Quick Start
+* [Rebuilding](#rebuilding-the-project)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
