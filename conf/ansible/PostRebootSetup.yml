@@ -31,9 +31,13 @@
 ##################################################################################
 --- 
 - 
-  name: Adding Python3 PSUtil
+  name: Install a list of packages
   apt:
-    name: python3-psutil
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - python3-psutil
+    - Xvfb
 - 
   become_user: vagrant
   dconf: 
