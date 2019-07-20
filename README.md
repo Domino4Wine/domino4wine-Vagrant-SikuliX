@@ -1,4 +1,47 @@
-﻿# domino4wine-Vagrant-SikuliX
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/prominic/domino4wine-Vagrant-SikuliX/">
+    <img src="conf/wiki/images/Prom.jpg" alt="Logo" width="200" height="100">
+  </a>
+
+  <h3 align="center">Domino4Wine built on Vagrant</h3>
+
+  <p align="center">
+    An README to jumpstart your build of Domino Notes, Administrator and Designer on Linux
+    <br />
+    <a href="https://github.com/prominic/domino4wine-Vagrant-SikuliX"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/prominic/domino4wine-Vagrant-SikuliX">View Demo</a>
+    ·
+    <a href="https://github.com/prominic/domino4wine-Vagrant-SikuliX/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/prominic/domino4wine-Vagrant-SikuliX/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#domino4wine-vagrant-sikulix)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#downloading-domino4wine-vagrant-sikulix-project-to-a-local-folder)
+    * [Mac OS X](https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/MacMojaveReadme.md)
+    * [Windows](https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/Win10ReadMe.md)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#authors)
+* [Acknowledgements](#acknowledgments)
+
+
+
+# domino4wine-Vagrant-SikuliX
 Primary goal is to use Vagrant on Windows, Mac, and Linux to deploy Crossover in an Ubuntu 19.04 VM, in order to run regression tests and automating GUI based installations and configuration of applications.
 
 Our Primary Focus is on IBM Notes, Designer and Administrator, however this project is meant to be used as multi-tool for other projects that require GUI based automation.
@@ -18,11 +61,6 @@ git
 Vagrant
 Virtualbox
 ```
-### QuickStart Links
-
-Mac OS X 10.14.5 -- https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/MacMojaveReadme.md
-Windows 10 and Server 2016 and above -- https://github.com/prominic/domino4wine-Vagrant-SikuliX/blob/master/Win10ReadMe.md
-
 
 ### Installing
 
@@ -334,6 +372,10 @@ Once the Bottle has been created. Clone the Bottle so  that you have a clean ins
 Now the Bottle has been cloned, You can install Notes 9 and Notes 10. To do this, Select the newly cloned bottle, and click Install Software. You will get the same prompt as you did when you created the Bottle. In the Search Field, type the work "unlisted" and select that option. Next, Select the Installer File, Then select browse file system and navigate to the Vagrant Share folder on the VM, again this is on the ROOT of the VM, in the vagrant folder. If you placed the files into the respective folders as stated above. You can find your installer in that folder. Next you should be able to click the Finish Button on the Crossover Window, and it will begin installing Notes into the bottle you cloned. You will need to go through the standard Notes installation, DO NOT have to extract the installer to a temp directory.
 
 After Notes Finishes installation, repeat the same procedure for the Fix Packs and then for the Hot Fixes.
+
+## Roadmap
+
+See the [open issues](https://github.com/prominic/domino4wine-Vagrant-SikuliX/issues) for a list of proposed features (and known issues).
 
 ## Built With
 * [Vagrant](https://www.vagrantup.com/) - Portable Development Environment Suite.
