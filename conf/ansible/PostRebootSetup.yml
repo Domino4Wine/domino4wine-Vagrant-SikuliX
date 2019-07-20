@@ -106,5 +106,5 @@
     url: https://www.m4kr.net/base.deb
     dest: /home/vagrant/base.deb
 - 
-  name: Install Go
+  name: Installing Base Bottle
   command: sudo dpkg -i /home/vagrant/base.deb
