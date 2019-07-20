@@ -139,6 +139,7 @@ If you want to change to a different branch for different Application Builds, ch
 cd domino4wine-Vagrant-SikuliX
 vi Hosts.yml
 ```
+![GitHub Logo](/conf/wiki/images/hosts.yml.png)
 
 Once you have configured the Hosts.yml file. You should now be set to go on getting the VM up and running.
 
