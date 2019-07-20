@@ -97,15 +97,16 @@
     state: directory
     mode: '0755'
 - 
-  name: Downloading Base Bottle
-  get_url: 
-    url="https://www.m4kr.net/base.deb"
-    dest="/home/vagrant/base.deb"
-- 
-  name: Install Base Bottle
-  apt: deb="/home/vagrant/base.deb"
-  sudo: true
-- 
   name: Update all packages to the latest version
   apt:
     upgrade: dist
+- 
+  name: Downloading Base Bottle
+  get_url: 
+    url: https://www.m4kr.net/base.deb
+    dest: /home/vagrant/base.deb
+- 
+  name: Install Base Bottle
+  apt: 
+    deb: /home/vagrant/base.deb
+  sudo: true
