@@ -373,6 +373,20 @@ Now the Bottle has been cloned, You can install Notes 9 and Notes 10. To do this
 
 After Notes Finishes installation, repeat the same procedure for the Fix Packs and then for the Hot Fixes.
 
+## Rebuilding the Project
+
+There are times that the the project may be misconfigured by a typo or wrong value in the Hosts.yml or due to networking issues. As a result of this the VM may not be setup correctly. 
+
+Vagrant commands are highly dependent on the path that your run the commands in. When you run *vagrant up*, you must be inside of the Project folder. If you need to restart the VM, you can do so by running *vagrant reload* however, for this to work, you must be inside of the Vagrant Project folder.
+
+common Vagrant commands:
+
+* vagrant up -- This will boot the VM if it is not running. The First time the VM boots up, it will provision and setup the VM.
+* vagrant reload -- This will reboot the VM. --provision will allow you to rerun the setup scripts
+* vagrant destroy -- This will delete the VM, -f will force this
+* vagrant halt  -- This will stop the VM
+* vagrant global-status -- This will list all running VMs and the Path in which they reside, --prune will remove any corrupt VMs.
+
 ## Roadmap
 
 See the [open issues](https://github.com/prominic/domino4wine-Vagrant-SikuliX/issues) for a list of proposed features (and known issues).
