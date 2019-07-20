@@ -379,9 +379,7 @@ You should at this point be able to launch Notes via CrossOver and Sign in.
 
 ### Manual Notes installation -- Since the Sikulix Scripts need more work.
 
-Assuming you have placed the installer files in the above directories for each respective version, IE, base, Fix Pack and Hot Fixes, you will then Open up CrossOver. You will then Click on Install Software. This will bring up a new Window with a Search Bar. Before we can install Notes, we need to prepare the Crossover Bottle. You can do this by typing IBM Notes, and selecting the entry with Domino4wine (The name will change once Crossover Approves our Latest Crosstie), This will install Flash, IE, Firefox, C++, Fonts, and other required software. 
-
-Once the Bottle has been created. Clone the Bottle so  that you have a clean instance of the bottle to use for multiple projects. You can do this by right clicking on the bottle you just made and clicking duplicate. Once Duplicated, select the cloned Bottle, rename it appropriately.  
+Assuming you have placed the installer files in the above directories for each respective version, IE, base, Fix Pack and Hot Fixes, you will then Open up CrossOver. You will see that there is already a published Bottle named Base. Right click on this Bottle and Duplicate it. 
 
 Now the Bottle has been cloned, You can install Notes 9 and Notes 10. To do this, Select the newly cloned bottle, and click Install Software. You will get the same prompt as you did when you created the Bottle. In the Search Field, type the work "unlisted" and select that option. Next, Select the Installer File, Then select browse file system and navigate to the Vagrant Share folder on the VM, again this is on the ROOT of the VM, in the vagrant folder. If you placed the files into the respective folders as stated above. You can find your installer in that folder. Next you should be able to click the Finish Button on the Crossover Window, and it will begin installing Notes into the bottle you cloned. You will need to go through the standard Notes installation, DO NOT have to extract the installer to a temp directory.
 
