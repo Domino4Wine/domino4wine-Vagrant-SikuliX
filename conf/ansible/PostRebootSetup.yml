@@ -187,11 +187,3 @@
     opts: bind
     state: mounted
     fstype: none
-- 
-  name: Mounting HTML5 Download Folder
-  mount:
-    path: /home/vagrant/Desktop/HTML5
-    src: /home/vagrant/thinclient_drives/
-    opts: bind
-    state: mounted
-    fstype: none
