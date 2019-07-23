@@ -37,6 +37,7 @@
   vars:
     packages:
     - python3-psutil
+    - Xvfb
     - xvfb
 - 
   become_user: vagrant
@@ -77,11 +78,6 @@
     src: /vagrant/Sikulix/deps/Sikuli.desktop
   name: "Adding Desktop Icon for Sikulix"
 - 
-  copy: 
-    dest: /home/vagrant/.config/autostart
-    src: /vagrant/jenkins/jenkins.desktop
-  name: "Adding Jenkins to Autostart"
-- 
   name: "Changing perm of Desktop Icon"
   file:
     path:  /home/vagrant/Desktop/Sikuli.desktop
@@ -111,7 +107,7 @@
 - 
   name: "Starting Jenkins Service"
   service: 
-    enabled: false
+    enabled: true
     name: jenkins
     state: restarted
 - 
@@ -199,3 +195,4 @@
     opts: bind
     state: mounted
     fstype: none
+  ignore_errors: yes
