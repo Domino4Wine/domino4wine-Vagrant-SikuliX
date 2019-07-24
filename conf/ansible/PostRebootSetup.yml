@@ -37,7 +37,6 @@
   vars:
     packages:
     - python3-psutil
-    - Xvfb
     - xvfb
 - 
   become_user: vagrant
