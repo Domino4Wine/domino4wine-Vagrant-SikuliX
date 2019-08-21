@@ -1,0 +1,72 @@
+--- 
+- 
+  ignore_errors: true
+  name: "Add the user {{  user  }}"
+  user: 
+    comment: "Guac User"
+    home: "/home/{{  user  }}/"
+    name: "{{  user  }}"
+    password: "{{ userpass | password_hash('sha512') }}"
+- 
+  blockinfile: 
+    block: |
+        Username={{  realusername  }}
+        KeyfileName=C:\users\crossover\user.id
+        Domino.Name={{  dominoserver  }}
+        Domino.Port=TCP/IP
+        Domino.Server=1
+        AdditionalServices=-1
+    create: true
+    marker: ""
+    owner: "{{  user  }}"
+    path: "/home/{{  user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/setup.txt"
+  name: "Modifiying Setup.txt setting to use {{  realusername  }} and  {{  dominoserver  }}"
+- 
+  blockinfile: 
+    block: |
+        [Notes]
+        CONFIGFILE=C:\users\crossover\setup.txt
+        KitType=1
+        InstallType=2
+        InstallMode=1
+        NotesProgram=C:\Program Files\IBM\notes\
+        Directory=C:\users\crossover\IBM\notes\Data
+    create: true
+    marker: ""
+    owner: "{{ user  }}"
+    path: "/home/{{ user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/IBM/Notes/Data/notes.ini"
+  name: "Modifiying Notes.ini to call Setup.txt"
+- 
+  copy: 
+    dest: "/home/{{ user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/user.id"
+    owner: "{{ user  }}"
+    src: "{{  userid  }}"
+  name: "Copying the userid from directory: {{  userid  }}"
+  ignore_errors: true
+-
+  name: Cleaning Notes ID from Host
+  file:
+    state: absent
+    path: "{{  userid  }}"
+- 
+  become: true
+  file: 
+    group: "{{ user  }}"
+    owner: "{{ user  }}"
+    path: "/home/{{ user  }}/.cxoffice"
+    recurse: true
+    state: directory
+  ignore_errors: true
+  name: "Recursively change ownership of a directory"
+- 
+  name: "Change Setup.txt to Windows Line Endings for Scriptable Installation"
+  shell: "unix2dos /home/{{ user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/setup.txt"
+- 
+  name: "Checking if XRDP is Running"
+  systemd: 
+    enabled: true
+    name: "{{ item }}"
+    state: started
+  with_items: 
+    - xrdp
+

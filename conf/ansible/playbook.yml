@@ -1,0 +1,9 @@
+---
+-
+  become: true
+  gather_facts: true
+  hosts: 127.0.0.1
+  tasks:
+    -
+      name: "Running Setup"
+      include: UserSetup.yml
