@@ -58,7 +58,7 @@ for i in ${!SESSIONHOST[*]} ; do
       SSHKEY=("${SHPATH}/.vagrant/machines/domino4wine/virtualbox/private_key")
       if [ -f ${UserIDFilePath[i]} ];
       then
-         mv ${UserIDFilePath[i]} ${SHPATH}/conf/user-data/user.id;
+         mv ${UserIDFilePath[i]} /Array-0/hosts/${SESSIONHOST[i]}/domino4wine-Vagrant-SikuliX/conf/user-data/user.id;
       else
          echo "No user.id in directory specified, using the last known good one in Vagrant Shared Folder";
       fi

@@ -3,10 +3,18 @@
   ignore_errors: true
   name: "Add the user {{  user  }}"
   user: 
-    comment: "Guac User"
+    comment: "{{  user  }}"
+    shell: /bin/bash
+    groups:
+       - sudo
     home: "/home/{{  user  }}/"
     name: "{{  user  }}"
     password: "{{ userpass | password_hash('sha512') }}"
+- 
+  become: true
+  become_user: "{{  user  }}"
+  name: Preparing Bottle for first time use
+  shell: "/opt/cxoffice/bin/wine --bottle \"Notes10Demo\" --cx-app cmd.exe /c"
 - 
   blockinfile: 
     block: |
@@ -19,7 +27,7 @@
     create: true
     marker: ""
     owner: "{{  user  }}"
-    path: "/home/{{  user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/setup.txt"
+    path: "/home/{{  user  }}/.cxoffice/Notes10Demo/dosdevices/c:/users/crossover/setup.txt"
   name: "Modifiying Setup.txt setting to use {{  realusername  }} and  {{  dominoserver  }}"
 - 
   blockinfile: 
@@ -34,11 +42,11 @@
     create: true
     marker: ""
     owner: "{{ user  }}"
-    path: "/home/{{ user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/IBM/Notes/Data/notes.ini"
+    path: "/home/{{ user  }}/.cxoffice/Notes10Demo/dosdevices/c:/users/crossover/IBM/Notes/Data/notes.ini"
   name: "Modifiying Notes.ini to call Setup.txt"
 - 
   copy: 
-    dest: "/home/{{ user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/user.id"
+    dest: "/home/{{ user  }}/.cxoffice/Notes10Demo/dosdevices/c:/users/crossover/user.id"
     owner: "{{ user  }}"
     src: "{{  userid  }}"
   name: "Copying the userid from directory: {{  userid  }}"
@@ -53,16 +61,15 @@
   file: 
     group: "{{ user  }}"
     owner: "{{ user  }}"
-    path: "/home/{{ user  }}/.cxoffice"
+    path: /home/"{{ user  }}"/.cxoffice"
     recurse: true
     state: directory
   ignore_errors: true
   name: "Recursively change ownership of a directory"
 - 
   name: "Change Setup.txt to Windows Line Endings for Scriptable Installation"
-  shell: "unix2dos /home/{{ user  }}/.cxoffice/ProminicInternalUseOnly/dosdevices/c:/users/crossover/setup.txt"
-- 
-  name: "Checking if XRDP is Running"
+  shell: "unix2dos /home/{{ user  }}/.cxoffice/Notes10Demo/dosdevices/c:/users/crossover/setup.txt"
+- name: "Checking if XRDP is Running"
   systemd: 
     enabled: true
     name: "{{ item }}"

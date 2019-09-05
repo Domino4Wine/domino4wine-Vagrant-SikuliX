@@ -33,7 +33,6 @@ class Hosts
   def Hosts.configure(config, settings)
     # Configure scripts path variable
     scriptsPath = File.dirname(__FILE__) + '/scripts'
-
     # Prevent TTY errors
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     config.ssh.forward_agent = true
@@ -49,6 +48,7 @@ class Hosts
 
       config.vm.define "#{host['name']}", autostart: autostart do |server|
         server.vm.box = host['box'] || 'ubuntu/bionic64'
+        server.disksize.size = '80GB'
 
         if settings.has_key?('boxes')
           boxes = settings['boxes']
@@ -67,8 +67,6 @@ class Hosts
         server.vm.provider :virtualbox do |vb|
           vb.name = host['identifier']
           vb.customize ['modifyvm', :id, '--ostype', 'Ubuntu_64']
-		  vb.customize ['setextradata', 'global', 'GUI/MaxGuestResolution', 'any']
-		  vb.customize ['setextradata', :id, 'CustomVideoMode1', '1366x768x32']
 		  
           if host.has_key?('provider')
             host['provider'].each do |param|
@@ -76,7 +74,6 @@ class Hosts
             end
           end
         end
-      
         # Register shared folders
         if host.has_key?('folders')
           host['folders'].each do |folder|
