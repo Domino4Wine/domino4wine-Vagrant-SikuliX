@@ -1,0 +1,176 @@
+# Italian translations for PACKAGE package.
+# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Julio Galvan <mail@mail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-04 00:15-0700\n"
+"PO-Revision-Date: 2017-05-04 18:14-0700\n"
+"Last-Translator: Julio Galvan <mail@mail.com>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:122
+msgid "Network Settings"
+msgstr "Impostazioni di rete"
+
+#: extension.js:185
+msgid "About This Computer"
+msgstr "Informazioni sul computer"
+
+#: extension.js:189
+msgid "GNOME Help"
+msgstr "Aiuto GNOME"
+
+#: extension.js:195
+msgid "System Settings"
+msgstr "Impostazioni di sistema"
+
+#: extension.js:199
+msgid "Extension Settings"
+msgstr "Impostazioni estensioni"
+
+#: extension.js:206
+msgid "Lock"
+msgstr "Blocca"
+
+#: extension.js:213
+msgid "Switch User"
+msgstr "Cambia utente"
+
+#: extension.js:222
+msgid "Log Out"
+msgstr "Esci"
+
+#: extension.js:229
+msgid "Account Settings"
+msgstr "Impostazioni utente"
+
+#: extension.js:245
+msgid "Suspend"
+msgstr "Sospendi"
+
+#: extension.js:252
+msgid "Power Off"
+msgstr "Spegni"
+
+#: extension.js:278 extension.js:303
+msgid "Resume"
+msgstr "Riprendi"
+
+#: extension.js:281
+msgid "Turn Off"
+msgstr "Spegni"
+
+#: extension.js:284
+msgid "Display Settings"
+msgstr "Impostazioni Monitor"
+
+#: extension.js:302
+msgid "Night Light Disabled"
+msgstr "Modalità notturna Off"
+
+#: extension.js:302
+msgid "Night Light On"
+msgstr "Modalità notturna On"
+
+#: extension.js:303
+msgid "Disable Until Tomorrow"
+msgstr "Disabilità sino a domani"
+
+#: extension.js:334
+msgid "Power Settings"
+msgstr "Impostazioni alimentazione"
+
+#: extension.js:379
+msgid "Volume Settings"
+msgstr "Impostazioni volume"
+
+#: prefs.js:60
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: prefs.js:70
+msgid "Name label (Empty to show real user name)"
+msgstr "Etichetta Nome (Vuota per visualizzare il nome utente)"
+
+#: prefs.js:85
+msgid "Show an icon instead of name"
+msgstr "Visualizza immagine invece del nome"
+
+#: prefs.js:98
+msgid "Change format of date (Empty to system default)"
+msgstr "Cambia formato della data (Vuota per usare le impostazioni di sistema)"
+
+#: prefs.js:103
+msgid "wiki"
+msgstr "wiki"
+
+#: prefs.js:122
+msgid "Indicators"
+msgstr "Indicatori"
+
+#: prefs.js:143
+msgid "Top to bottom -> Left to right"
+msgstr "Dall'alto al basso -> Da sinistra a destra"
+
+#: prefs.js:152
+msgid "Reset Indicators"
+msgstr "Reimposta Indicatori"
+
+#: prefs.js:158
+msgid "Reset"
+msgstr "Reimposta"
+
+#: prefs.js:176
+msgid "Help"
+msgstr "Aiuto"
+
+#: prefs.js:186
+msgid "If something breaks, don't hesitate to leave a comment at "
+msgstr "Se qualcosa smette di funzionare, non esitare a lasciare un commento su"
+
+#: prefs.js:192
+msgid "Github repo"
+msgstr "Github repo"
+
+#: prefs.js:203
+msgid "Made with love by #julio641742#"
+msgstr "Creato con amore da #julio641742"
+
+#: prefs.js:226
+msgid "Up"
+msgstr "Su"
+
+#: prefs.js:233
+msgid "Down"
+msgstr "Giù"
+
+#: schemas.xml
+msgid "Night Light Indicator [GNOME Shell>=3.24]"
+msgstr "Indicatore Modalità Notturna [GNOME Shell>=3.24]"
+
+msgid "Volume Indicator"
+msgstr "Indicatore Volume"
+
+msgid "Network Indicator"
+msgstr "Indicatore Rete"
+
+msgid "Power(Brightness) Indicator"
+msgstr "Indicatore Alimentazione(Luminosità)"
+
+msgid "Calendar Indicator"
+msgstr "Indicatore Calendario"
+
+msgid "User Indicator"
+msgstr "Indicatore Utente"
+
+msgid "Notification Indicator"
+msgstr "Indicatore Notifiche"

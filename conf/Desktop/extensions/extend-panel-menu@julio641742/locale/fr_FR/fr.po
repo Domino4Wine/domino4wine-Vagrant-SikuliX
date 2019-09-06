@@ -1,0 +1,176 @@
+# French translations for PACKAGE package.
+# Copyright (C) 2017 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Julio Galvan <mail@mail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-04 00:15-0700\n"
+"PO-Revision-Date: 2017-05-04 18:14-0700\n"
+"Last-Translator: Julio Galvan <mail@mail.com>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: extension.js:122
+msgid "Network Settings"
+msgstr ""
+
+#: extension.js:185
+msgid "About This Computer"
+msgstr ""
+
+#: extension.js:189
+msgid "GNOME Help"
+msgstr ""
+
+#: extension.js:195
+msgid "System Settings"
+msgstr ""
+
+#: extension.js:199
+msgid "Extension Settings"
+msgstr ""
+
+#: extension.js:206
+msgid "Lock"
+msgstr ""
+
+#: extension.js:213
+msgid "Switch User"
+msgstr ""
+
+#: extension.js:222
+msgid "Log Out"
+msgstr ""
+
+#: extension.js:229
+msgid "Account Settings"
+msgstr ""
+
+#: extension.js:245
+msgid "Suspend"
+msgstr ""
+
+#: extension.js:252
+msgid "Power Off"
+msgstr ""
+
+#: extension.js:278 extension.js:303
+msgid "Resume"
+msgstr ""
+
+#: extension.js:281
+msgid "Turn Off"
+msgstr ""
+
+#: extension.js:284
+msgid "Display Settings"
+msgstr ""
+
+#: extension.js:302
+msgid "Night Light Disabled"
+msgstr ""
+
+#: extension.js:302
+msgid "Night Light On"
+msgstr ""
+
+#: extension.js:303
+msgid "Disable Until Tomorrow"
+msgstr ""
+
+#: extension.js:334
+msgid "Power Settings"
+msgstr ""
+
+#: extension.js:379
+msgid "Volume Settings"
+msgstr ""
+
+#: prefs.js:60
+msgid "Settings"
+msgstr ""
+
+#: prefs.js:70
+msgid "Name label (Empty to show real user name)"
+msgstr ""
+
+#: prefs.js:85
+msgid "Show an icon instead of name"
+msgstr ""
+
+#: prefs.js:98
+msgid "Change format of date (Empty to system default)"
+msgstr ""
+
+#: prefs.js:103
+msgid "wiki"
+msgstr ""
+
+#: prefs.js:122
+msgid "Indicators"
+msgstr ""
+
+#: prefs.js:143
+msgid "Top to bottom -> Left to right"
+msgstr ""
+
+#: prefs.js:152
+msgid "Reset Indicators"
+msgstr ""
+
+#: prefs.js:158
+msgid "Reset"
+msgstr ""
+
+#: prefs.js:176
+msgid "Help"
+msgstr ""
+
+#: prefs.js:186
+msgid "If something breaks, don't hesitate to leave a comment at "
+msgstr ""
+
+#: prefs.js:192
+msgid "Github repo"
+msgstr ""
+
+#: prefs.js:203
+msgid "Made with love by #julio641742#"
+msgstr ""
+
+#: prefs.js:226
+msgid "Up"
+msgstr ""
+
+#: prefs.js:233
+msgid "Down"
+msgstr ""
+
+#: schemas.xml
+msgid "Night Light Indicator [GNOME Shell>=3.24]"
+msgstr ""
+
+msgid "Volume Indicator"
+msgstr ""
+
+msgid "Network Indicator"
+msgstr ""
+
+msgid "Power(Brightness) Indicator"
+msgstr ""
+
+msgid "Calendar Indicator"
+msgstr ""
+
+msgid "User Indicator"
+msgstr ""
+
+msgid "Notification Indicator"
+msgstr ""

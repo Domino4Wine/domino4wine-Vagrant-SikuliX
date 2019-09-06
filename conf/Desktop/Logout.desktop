@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=True
+Name[en_US]=Log Out
+Exec=/usr/share/applications/logout.sh 
+Name=Log Out
+Icon=/usr/share/applications/Logout.png

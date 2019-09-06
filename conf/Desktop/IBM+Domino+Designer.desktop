@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Icon=designer.ico
+Exec="/opt/cxoffice/bin/wine" --bottle "Notes10Demo" --check --wait-children --start "C:/users/crossover/Start Menu/Programs/IBM Applications/IBM Domino Designer.lnk" "$@"
+Name=IBM Domino Designer
