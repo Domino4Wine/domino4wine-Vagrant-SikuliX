@@ -38,6 +38,7 @@
     packages:
     - python3-psutil
     - xvfb
+    - preload
 - 
   become_user: vagrant
   dconf: 
@@ -186,12 +187,64 @@
     opts: bind
     state: mounted
     fstype: none
-- 
-  name: Mounting HTML5 Download Folder
-  mount:
-    path: /home/vagrant/Desktop/HTML5
-    src: /home/vagrant/thinclient_drives/
-    opts: bind
-    state: mounted
-    fstype: none
-  ignore_errors: yes
+-
+  name: Copy Desktop Icons to /usr/share/applications
+  copy:
+    src: /vagrant/Desktop/{{item}}
+    dest: /usr/share/applications
+    mode: 0774
+  with_items:
+    ['IBM+Domino+Admin.desktop','IBM+Domino+Designer.desktop','IBM+Notes.desktop','Logout.desktop','Admin.ico','Designer.ico','Logout.png','logout.sh','Notes.ico']
+-
+  name: Setting Global Dconf
+  copy:
+    src: /vagrant/Desktop/{{item}}
+    dest: /etc/dconf/db/local.d
+    mode: 0774
+  with_items:
+    ['userconf']
+- name: Updating dconf Configuration for all users
+  command: dconf update
+-
+  name: Cloning Top-icons Gnome Extension
+  git:
+    repo: https://github.com/phocean/TopIcons-plus.git
+    dest: /usr/local/src/TopIcons-plus
+-
+  make:
+    chdir: /usr/local/src/TopIcons-plus
+  name: "Installing Top-icons Gnome Extension Plus for all users"
+  target: install
+  params:
+    INSTALL_PATH: /usr/share/gnome-shell/extensions
+-
+  name: Cloning dash-to-panel Gnome Extension
+  git:
+    repo: https://github.com/home-sweet-gnome/dash-to-panel.git
+    dest: /usr/local/src/dash-to-panel
+-
+  make:
+    chdir: /usr/local/src/dash-to-panel
+  name: "Installing dash-to-panel Gnome Extension Plus for all users"
+  target: install
+  params:
+    INSTALL_PATH: /usr/share/gnome-shell/extensions
+-
+  name: Cloning extend-panel-menu Gnome Extension
+  git:
+    repo: https://github.com/julio641742/extend-panel-menu.git
+    dest: /usr/local/src/extend-panel-menu
+-
+  make:
+    chdir: /usr/local/src/extend-panel-menu
+  name: "Installing extend-panel-menu Gnome Extension Plus for all users"
+  target: all
+  params:
+    INSTALL_PATH: /usr/share/gnome-shell/extensions
+-
+  make:
+    chdir: /usr/local/src/extend-panel-menu
+  name: "Installing extend-panel-menu Gnome Extension Plus for all users"
+  target: install
+  params:
+    INSTALL_PATH: /usr/share/gnome-shell/extensions
