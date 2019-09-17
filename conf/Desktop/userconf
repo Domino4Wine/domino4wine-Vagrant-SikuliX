@@ -3,7 +3,7 @@ always-show-log-out=false
 enable-hot-corners=false
 disable-user-extensions=false
 favorite-apps=['IBM+Notes.desktop', 'IBM+Domino+Designer.desktop', 'IBM+Domino+Admin.desktop','Logout.desktop']
-enabled-extensions=['ubuntu-dock@ubuntu.com', 'arc-menu@linxgem33.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742']
+enabled-extensions=['ubuntu-dock@ubuntu.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742']
 development-tools=false
 
 [org/gnome/shell/app-switcher]
