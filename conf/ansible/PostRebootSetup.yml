@@ -228,7 +228,7 @@
   name: "Installing dash-to-panel Gnome Extension Plus for all users"
   target: install
   params:
-    INSTALL_PATH: /usr/share/gnome-shell/extensions
+    DESTDIR: /
 -
   name: Cloning extend-panel-menu Gnome Extension
   git:
@@ -240,11 +240,11 @@
   name: "Installing extend-panel-menu Gnome Extension Plus for all users"
   target: all
   params:
-    INSTALL_PATH: /usr/share/gnome-shell/extensions
+    INSTALLBASE: /usr/share/gnome-shell/extensions
 -
   make:
     chdir: /usr/local/src/extend-panel-menu
   name: "Installing extend-panel-menu Gnome Extension Plus for all users"
   target: install
   params:
-    INSTALL_PATH: /usr/share/gnome-shell/extensions
+    INSTALLBASE: /usr/share/gnome-shell/extensions
