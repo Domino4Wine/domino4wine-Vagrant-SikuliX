@@ -34,8 +34,10 @@
   become: true
   gather_facts: true
   hosts: all
-  tasks:
-    -
-      name: "Configuring Guacamole"
-      include: ansible/Guac.yml
+  tasks: 
+    - 
+      name: "Running Tasks"
+      include: "{{ item }}"
+      with_fileglob:
+      - ansible/extras/*.yml
 
