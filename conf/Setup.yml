@@ -34,14 +34,6 @@
   become: true
   gather_facts: true
   hosts: all
-  pre_tasks:
-    - shell: "route -n | grep 172.17.1.1 | grep  "UG    0 " -c"
-      register: results
-    - set_fact:
-        myvalue: "{{ results.stdout | regex_search(regexp,'\\1') }}"
-    - debug:
-        var: myvalue
-     - shell: "if {{ myvalue == 0 }}; then route add  default gw {{ gateway }}"
   tasks:
     -
       name: "Configuring Guacamole"
