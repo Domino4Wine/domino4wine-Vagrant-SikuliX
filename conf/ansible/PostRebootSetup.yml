@@ -99,11 +99,11 @@
 - 
   name: Downloading Base Bottle
   get_url: 
-    url: https://www.m4kr.net/base.deb
-    dest: /home/vagrant/base.deb
+    url: https://www.m4kr.net/Notes10Demo.deb
+    dest: /home/vagrant/Notes10Demo.deb
 - 
   name: Installing Base Bottle
-  command: sudo dpkg -i /home/vagrant/base.deb
+  command: sudo dpkg -i /home/vagrant/Notes10Demo.deb
 - 
   name: "Starting Jenkins Service"
   service: 
