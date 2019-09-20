@@ -101,6 +101,7 @@
   get_url: 
     url: https://www.m4kr.net/Notes10Demo.deb
     dest: /home/vagrant/Notes10Demo.deb
+    timeout: 300
 - 
   name: Installing Base Bottle
   command: sudo dpkg -i /home/vagrant/Notes10Demo.deb
