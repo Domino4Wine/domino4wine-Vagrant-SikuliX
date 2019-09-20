@@ -100,11 +100,13 @@ class Hosts
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "Setup.yml"
           ansible.extra_vars = { ip:host['ip'] }
+	  ansible.compatibility_mode = "2.0"
         end
          ##Start Ansible Loop after reboot
         server.vm.provision :ansible_local do |ansible|
           ansible.playbook = "PostReboot.yml"
           ansible.extra_vars = { ip:host['ip']}
+	  ansible.compatibility_mode = "2.0"
         end
         # Run custom provisioners
         if host.has_key?('provision')
