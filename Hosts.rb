@@ -61,8 +61,7 @@ class Hosts
         server.vm.hostname = host['identifier']
         ## Need to make check for if IP, Mac address, Netmask or Gateway not Set
 
-        server.vm.network "public_network", ip: host['ip'], bridge: "1) Bridge", auto_config: true, :mac => host['mac'], :netmask => host['netmask'], gateway:  host['gateway']
-
+        server.vm.network "public_network", ip: host['ip'], bridge: "1) Bridge", auto_config: false, :mac => host['mac'], :netmask => host['netmask'], gateway:  host['gateway']
         # VirtulBox machine configuration
         server.vm.provider :virtualbox do |vb|
           vb.name = host['identifier']
