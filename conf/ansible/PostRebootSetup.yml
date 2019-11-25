@@ -40,6 +40,10 @@
     - xvfb
     - preload
 - 
+  name: Set timezone to Asia/Tokyo
+  timezone:
+    name: America/Chicago
+- 
   become_user: vagrant
   dconf: 
     key: /org/gnome/desktop/session/idle-delay
@@ -96,6 +100,10 @@
   name: Update all packages to the latest version
   apt:
     upgrade: dist
+  retries: 3
+  delay: 3
+  register: result
+  until: result.rc == 0
 - 
   name: Downloading Base Bottle
   get_url: 
