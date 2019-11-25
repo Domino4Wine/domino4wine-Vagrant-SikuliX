@@ -237,6 +237,7 @@
   git:
     repo: https://github.com/phocean/TopIcons-plus.git
     dest: /usr/local/src/TopIcons-plus
+    force: yes
 -
   name: "Installing Top-icons Gnome Extension Plus for all users"
   make:
