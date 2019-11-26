@@ -206,7 +206,7 @@
     dest: /usr/share/applications
     mode: a+x
   with_items:
-    ['IBM+Domino+Admin.desktop','IBM+Notes.desktop','IBMNotesX.desktop','Logout.desktop','Admin.ico','Logout.png','logout.sh','Notes.ico']
+    ['IBM+Domino+Admin.desktop','IBM+Notes.desktop','IBMNotesX.desktop','IBMNotesX.sh','Logout.desktop','Admin.ico','Logout.png','logout.sh','Notes.ico']
 -
   name: Copy Desktop Icons to /usr/share/applications
   copy:
