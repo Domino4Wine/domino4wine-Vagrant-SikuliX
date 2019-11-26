@@ -197,11 +197,12 @@ button-layout=':appmenu,minimize,maximize,close'
 
 [org/gnome/desktop/lockdown]
 disable-command-line=true
-disable-log-out=false
+disable-log-out=true
 disable-user-switching=true
 user-administration-disabled=true
 disable-lock-screen=true
 disable-printing=true
+
 
 [org/gnome/desktop/privacy]
 show-full-name-in-top-bar=false
@@ -228,6 +229,7 @@ draw-background=true
 secondary-color='#000000000000'
 picture-uri='file:///usr/share/backgrounds/ProminicBackground.png'
 primary-color='#000000000000'
+show-desktop-icons=false
 
 [org/gnome/desktop/interface]
 show-input-method-menu=false
