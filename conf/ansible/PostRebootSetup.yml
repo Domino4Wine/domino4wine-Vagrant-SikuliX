@@ -40,7 +40,7 @@
     - xvfb
     - preload
 - 
-  name: Set timezone to Asia/Tokyo
+  name: Set timezone to America/Chicago
   timezone:
     name: America/Chicago
 - 
@@ -201,7 +201,13 @@
     dest: /usr/share/applications
     mode: 0774
   with_items:
-    ['IBM+Domino+Admin.desktop','IBM+Domino+Designer.desktop','IBM+Notes.desktop','Logout.desktop','Admin.ico','Designer.ico','Logout.png','logout.sh','Notes.ico']
+    ['IBM+Domino+Admin.desktop','IBM+Notes.desktop','Logout.desktop','Admin.ico','Logout.png','logout.sh','Notes.ico']
+ -
+  name: Set Notes to Start for all Users
+  copy:
+    src: /vagrant/Desktop/IBM+Notes.desktop
+    dest: /etc/xdg/autostart/
+    mode: 0774
 -
   name: Creating userconf DB Directory
   file:
