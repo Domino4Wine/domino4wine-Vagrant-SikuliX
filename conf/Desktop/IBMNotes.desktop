@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Terminal=True
-Name[en_US]=IBM NotesX
-Exec=/usr/share/applications/IBMNotesX.sh 
-Name=IBM NotesX
+Name[en_US]=IBM Notes
+Exec=/usr/share/applications/IBMNotes.sh 
+Name=IBM Notes
 Icon=/usr/share/applications/Notes.ico
