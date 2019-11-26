@@ -197,7 +197,7 @@ button-layout=':appmenu,minimize,maximize,close'
 
 [org/gnome/desktop/lockdown]
 disable-command-line=true
-disable-log-out=true
+disable-log-out=false
 disable-user-switching=true
 user-administration-disabled=true
 disable-lock-screen=true
