@@ -59,7 +59,7 @@ network-monitor-gio-name=''
 always-show-log-out=false
 enable-hot-corners=false
 disable-user-extensions=false
-favorite-apps=['IBM+Notes.desktop', 'IBM+Domino+Designer.desktop', 'IBM+Domino+Admin.desktop', 'Logout.desktop']
+favorite-apps=['IBM+Notes.desktop', 'IBM+Domino+Admin.desktop', 'Logout.desktop','IBMNotesX.desktop']
 enabled-extensions=['ubuntu-dock@ubuntu.com', 'arc-menu@linxgem33.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742', 'desktop-icons@csoriano']
 development-tools=false
 
@@ -210,7 +210,7 @@ show-full-name-in-top-bar=false
 picture-options='none'
 status-message-enabled=false
 ubuntu-lock-on-suspend=false
-picture-uri='file:///usr/share/backgrounds/Cramond_Island_by_Keanu_Kerr.jpg'
+picture-uri='file:///usr/share/backgrounds/ProminicBackground.png'
 idle-activation-enabled=false
 show-full-name-in-top-bar=false
 user-switch-enabled=false
@@ -225,7 +225,7 @@ allow-volume-above-100-percent=false
 picture-options='none'
 primary-color='#505050'
 draw-background=false
-picture-uri='file:///usr/share/backgrounds/Dingo_Wallpaper_Grey_4096x2304.png'
+picture-uri='file:///usr/share/backgrounds/ProminicBackground.png'
 
 [org/gnome/desktop/interface]
 show-input-method-menu=false
