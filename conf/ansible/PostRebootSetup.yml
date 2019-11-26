@@ -204,6 +204,12 @@
   with_items:
     ['IBM+Domino+Admin.desktop','IBM+Notes.desktop','Logout.desktop','Admin.ico','Logout.png','logout.sh','Notes.ico']
 -
+  name: Copy Desktop Icons to /usr/share/applications
+  copy:
+    src: /vagrant/Desktop/ProminicBackground.png
+    dest: /usr/share/backgrounds/ProminicBackground.png
+    mode: a+x
+-
   name: Set Notes to Start for all Users
   copy:
     src: /vagrant/Desktop/IBM+Notes.desktop
