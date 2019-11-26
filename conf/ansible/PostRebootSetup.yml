@@ -201,7 +201,7 @@
   copy:
     src: /vagrant/Desktop/{{item}}
     dest: /usr/share/applications
-    mode: 0774
+    mode: a+x
   with_items:
     ['IBM+Domino+Admin.desktop','IBM+Notes.desktop','Logout.desktop','Admin.ico','Logout.png','logout.sh','Notes.ico']
 -
