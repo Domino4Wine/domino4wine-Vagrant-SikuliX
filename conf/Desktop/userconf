@@ -222,10 +222,12 @@ input-feedback-sounds=false
 allow-volume-above-100-percent=false
 
 [org/gnome/desktop/background]
-picture-options='none'
-primary-color='#505050'
+picture-options='zoom'
+color-shading-type='solid'
 draw-background=true
+secondary-color='#000000000000'
 picture-uri='file:///usr/share/backgrounds/ProminicBackground.png'
+primary-color='#000000000000'
 
 [org/gnome/desktop/interface]
 show-input-method-menu=false
