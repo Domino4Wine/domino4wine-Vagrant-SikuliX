@@ -98,6 +98,10 @@
     state: directory
     mode: '0755'
 - 
+  name: apt-get update
+  apt:
+    update_cache: yes
+- 
   name: Update all packages to the latest version
   apt:
     upgrade: dist
