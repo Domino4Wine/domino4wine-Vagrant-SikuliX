@@ -202,7 +202,7 @@
     mode: 0774
   with_items:
     ['IBM+Domino+Admin.desktop','IBM+Notes.desktop','Logout.desktop','Admin.ico','Logout.png','logout.sh','Notes.ico']
- -
+-
   name: Set Notes to Start for all Users
   copy:
     src: /vagrant/Desktop/IBM+Notes.desktop
