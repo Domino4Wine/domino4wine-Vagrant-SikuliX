@@ -37,8 +37,8 @@
         InstallMode=1
         NotesProgram=C:\Program Files\IBM\notes\
         Directory=C:\users\crossover\IBM\notes\Data
-        UseWindowsFontSubstituteFontList = Courier
-        UseBasicNotes = 1
+        UseWindowsFontSubstituteFontList=Courier
+        UseBasicNotes=1
     create: true
     marker: ""
     owner: "{{ user  }}"
