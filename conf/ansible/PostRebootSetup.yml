@@ -291,3 +291,10 @@
     params:
       INSTALLBASE: /usr/share/gnome-shell/extensions
   name: "Installing extend-panel-menu Gnome Extension Plus for all users"
+- 
+  name: Disable Upgrade Prompt
+  lineinfile:
+    path: /etc/update-manager/release-upgrades
+    regexp: '^Prompt='
+    line: Prompt=never
+
