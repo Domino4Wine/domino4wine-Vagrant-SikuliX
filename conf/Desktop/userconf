@@ -59,7 +59,7 @@ network-monitor-gio-name=''
 always-show-log-out=false
 enable-hot-corners=false
 disable-user-extensions=false
-favorite-apps=['IBM+Domino+Admin.desktop', 'Logout.desktop','IBMNotes.desktop']
+favorite-apps=['IBM+Domino+Admin.desktop', 'Logout.desktop']
 enabled-extensions=['ubuntu-dock@ubuntu.com', 'arc-menu@linxgem33.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742', 'desktop-icons@csoriano']
 development-tools=false
 
@@ -85,7 +85,7 @@ user-icon=false
 
 [org/gnome/shell/extensions/arc-menu]
 show-software-shortcut=false
-pinned-app-list=['IBM Notes', '/vagrant/Desktop/Notes.ico', 'IBMNotes.desktop','IBM Domino Administrator', '/vagrant/Desktop/Admin.ico', 'IBM+Domino+Admin.desktop']
+pinned-app-list=['IBM Domino Administrator', '/vagrant/Desktop/Admin.ico', 'IBM+Domino+Admin.desktop']
 menu-height=550
 menu-border-size=0
 vert-separator=false
@@ -160,7 +160,7 @@ logo='/vagrant/wiki/images/prom.jpg'
 enable-password-authentication=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-gedit', 'cxmenu-cxoffice-0-29ra4ke-crossover', 'update-manager', 'org-gnome-baobab', 'org-gnome-nautilus', 'apport-gtk', 'org-gnome-tweaks', 'org-gnome-software']
+application-children=['org-gnome-gedit', 'cxmenu-cxoffice-0-29ra4ke-crossover',  'org-gnome-baobab', 'org-gnome-nautilus', 'apport-gtk', 'org-gnome-tweaks', 'org-gnome-software']
 
 [org/gnome/desktop/notifications/application/org-gnome-gedit]
 application-id='org.gnome.gedit.desktop'
