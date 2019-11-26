@@ -1,9 +1,66 @@
+[com/ubuntu/update-notifier]
+release-check-time=uint32 1567196698
+
+[desktop/ibus/general]
+version='1.5.19'
+preload-engines=['xkb:us::eng']
+
+[desktop/ibus/panel]
+show-icon-on-systray=false
+show=0
+
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/shell/extensions/topicons/tray-pos'
+window-width=1372
+show-warning=false
+window-height=651
+saved-view='/org/gnome/shell/extensions/topicons/tray-pos'
+window-is-maximized=false
+
+[apps/update-manager]
+launch-time=int64 1568011696
+launch-count=8
+first-run=false
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+show-size-column=true
+show-hidden=true
+sidebar-width=197
+sort-column='name'
+window-position=(334, 23)
+sort-order='ascending'
+location-mode='path-bar'
+sort-directories-first=true
+window-size=(1253, 842)
+
+[org/gnome/nautilus/window-state]
+sidebar-width=197
+initial-size=(890, 550)
+maximized=false
+
+[org/gnome/nautilus/preferences]
+search-view='list-view'
+default-folder-viewer='list-view'
+search-filter-time-type='last_modified'
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/eog/ui]
+propsdialog-netbook-mode=false
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
 [org/gnome/shell]
 always-show-log-out=false
 enable-hot-corners=false
 disable-user-extensions=false
-favorite-apps=['IBM+Notes.desktop', 'IBM+Domino+Designer.desktop', 'IBM+Domino+Admin.desktop','Logout.desktop']
-enabled-extensions=['ubuntu-dock@ubuntu.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742']
+favorite-apps=['IBM+Notes.desktop', 'IBM+Domino+Designer.desktop', 'IBM+Domino+Admin.desktop', 'Logout.desktop']
+enabled-extensions=['ubuntu-dock@ubuntu.com', 'arc-menu@linxgem33.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742', 'desktop-icons@csoriano']
 development-tools=false
 
 [org/gnome/shell/app-switcher]
@@ -21,47 +78,75 @@ show-trash=false
 show-home=false
 
 [org/gnome/shell/extensions/extend-panel-menu]
-items='Night Light Indicator [GNOME Shell>=3.24];1;0;nightlight|Volume Indicator;1;0;volume|Network Indicator;0;0;network|Power(Brightness) Indicator;0;0;power|Calendar Indicator;1;0;calendar|User Indicator;0;0;user|Notification Indicator;1;0;notification'
+items='Calendar Indicator;1;1;calendar|Night Light Indicator [GNOME Shell>=3.24];0;0;nightlight|Volume Indicator;0;0;volume|Network Indicator;0;0;network|Power(Brightness) Indicator;0;0;power|User Indicator;0;0;user|Notification Indicator;1;0;notification'
+autohide-notification=true
+autohide-on-percent=true
+user-icon=false
 
 [org/gnome/shell/extensions/arc-menu]
+show-software-shortcut=false
+pinned-app-list=['IBM Notes', '/vagrant/Desktop/Notes.ico', 'IBM+Notes.desktop', 'IBM Domino Designer', '/vagrant/Desktop/Designer.ico', 'IBM+Domino+Designer.desktop', 'IBM Domino Administrator', '/vagrant/Desktop/Admin.ico', 'IBM+Domino+Admin.desktop']
+menu-height=550
+menu-border-size=0
+vert-separator=false
+menu-color='rgba(28, 28, 28, 0.98)'
 show-activities-overview-shortcut=false
-show-music-shortcut=false
-multi-monitor=true
-pinned-app-list=['IBM+Notes.desktop', 'IBM+Domino+Designer.desktop', 'IBM+Domino+Admin.desktop','Logout.desktop']
-menu-hotkey='Super_L'
-show-logout-button=false
-avatar-style='Square'
+menu-font-size=9
+menu-arrow-size=20
+show-lock-button=false
+menu-button-appearance='Icon'
+reload-theme=false
+menu-corner-radius=0
+show-tweaks-shortcut=false
 disable-activities-hotcorner=true
 custom-menu-button-icon='/vagrant/Desktop/Prominic.png'
-custom-menu-button-icon-size=37.0
-reload-theme=false
-show-software-shortcut=false
-enable-custom-arc-menu=false
 show-pictures-shortcut=false
-show-tweaks-shortcut=false
-menu-button-icon='Custom_Icon'
-show-terminal-shortcut=false
-menu-button-appearance='Icon'
-show-lock-button=false
-show-power-button=false
-show-settings-shortcut=false
+show-music-shortcut=false
 show-videos-shortcut=false
+avatar-style='Square'
+enable-custom-arc-menu=true
+menu-width=290
+menu-hotkey='Undefined'
+menu-margin=0
+show-power-button=false
+multi-monitor=true
+show-terminal-shortcut=false
+menu-foreground-color='rgba(211, 218, 227, 1)'
+separator-color='rgb(63,62,64)'
+border-color='rgb(63,62,64)'
+show-settings-shortcut=false
+show-logout-button=false
+custom-menu-button-icon-size=37.0
+highlight-color='rgba(238, 238, 236, 0.1)'
+menu-button-icon='Custom_Icon'
 
 [org/gnome/shell/extensions/dash-to-panel]
-show-appmenu=true
-scroll-icon-action='NOTHING'
-stockgs-panelbtn-click-only=false
-group-apps=false
-show-tooltip=false
-scroll-panel-action='NOTHING'
-group-apps-label-font-color='#dddddd'
 hotkeys-overlay-combo='TEMPORARILY'
+show-favorites=true
+show-tooltip=true
 show-activities-button=false
-dot-position='BOTTOM'
-show-show-apps-button=false
-secondarymenu-contains-showdetails=false
-show-showdesktop-button=true
 stockgs-keep-dash=false
+show-window-previews=true
+dot-style-unfocused='METRO'
+show-showdesktop-button=true
+isolate-workspaces=true
+appicon-padding=6
+scroll-panel-action='NOTHING'
+show-appmenu=false
+dot-style-focused='METRO'
+appicon-margin=7
+group-apps-label-font-color='#dddddd'
+dot-position='BOTTOM'
+stockgs-panelbtn-click-only=false
+show-running-apps=true
+secondarymenu-contains-showdetails=true
+animate-app-switch=false
+window-preview-title-font-color='#dddddd'
+show-show-apps-button=false
+animate-window-launch=false
+scroll-icon-action='NOTHING'
+group-apps=false
+panel-size=39
 
 [org/gnome/shell/window-switcher]
 current-workspace-only=true
@@ -70,18 +155,44 @@ current-workspace-only=true
 enable-fingerprint-authentication=false
 disable-user-list=false
 enable-smartcard-authentication=false
-disable-restart-buttons=true
+disable-restart-buttons=false
 logo='/vagrant/wiki/images/prom.jpg'
 enable-password-authentication=false
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-gedit', 'cxmenu-cxoffice-0-29ra4ke-crossover', 'update-manager', 'org-gnome-baobab', 'org-gnome-nautilus', 'apport-gtk', 'org-gnome-tweaks', 'org-gnome-software']
 
+[org/gnome/desktop/notifications/application/org-gnome-gedit]
+application-id='org.gnome.gedit.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-baobab]
+application-id='org.gnome.baobab.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/notifications/application/apport-gtk]
+application-id='apport-gtk.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-tweaks]
+application-id='org.gnome.tweaks.desktop'
+
+[org/gnome/desktop/notifications/application/cxmenu-cxoffice-0-29ra4ke-crossover]
+application-id='cxmenu-cxoffice-0-29ra4ke-CrossOver.desktop'
+
+[org/gnome/desktop/notifications/application/update-manager]
+application-id='update-manager.desktop'
+
 [org/gnome/desktop/wm/keybindings]
 panel-main-menu=['Super_L']
 
 [org/gnome/desktop/wm/preferences]
 num-workspaces=1
+mouse-button-modifier='disabled'
+titlebar-font='Segoe UI Light 11'
 button-layout=':appmenu,minimize,maximize,close'
 
 [org/gnome/desktop/lockdown]
@@ -96,13 +207,14 @@ disable-printing=true
 show-full-name-in-top-bar=false
 
 [org/gnome/desktop/screensaver]
-user-switch-enabled=false
+picture-options='none'
 status-message-enabled=false
-lock-enabled=false
-show-full-name-in-top-bar=false
-idle-activation-enabled=false
-picture-uri='file:///usr/share/backgrounds/Dingo_Wallpaper_Grey_4096x2304.png'
 ubuntu-lock-on-suspend=false
+picture-uri='file:///usr/share/backgrounds/Cramond_Island_by_Keanu_Kerr.jpg'
+idle-activation-enabled=false
+show-full-name-in-top-bar=false
+user-switch-enabled=false
+lock-enabled=false
 
 [org/gnome/desktop/sound]
 theme-name='Yaru'
@@ -110,17 +222,23 @@ input-feedback-sounds=false
 allow-volume-above-100-percent=false
 
 [org/gnome/desktop/background]
+picture-options='none'
+primary-color='#505050'
 draw-background=false
 picture-uri='file:///usr/share/backgrounds/Dingo_Wallpaper_Grey_4096x2304.png'
 
 [org/gnome/desktop/interface]
-gtk-im-module='gtk-im-context-simple'
-show-battery-percentage=false
-toolkit-accessibility=false
 show-input-method-menu=false
-gtk-theme='Adwaita-dark'
-icon-theme='Yaru'
 enable-animations=false
+show-battery-percentage=false
+gtk-theme='Adwaita-dark'
+font-name='Segoe UI Light 11'
+icon-theme='Yaru'
+gtk-im-module='gtk-im-context-simple'
+toolkit-accessibility=false
+monospace-font-name='Monospace 11'
+document-font-name='Segoe UI Light 11'
+text-scaling-factor=1.0
 
 [org/gnome/desktop/app-folders/folders/YaST]
 translate=true
@@ -131,13 +249,13 @@ name='suse-yast.directory'
 translate=true
 categories=['X-GNOME-Utilities']
 name='X-GNOME-Utilities.directory'
-apps=['']
+apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
 
 [org/gnome/desktop/app-folders/folders/Sundry]
 translate=true
 categories=['X-GNOME-Sundry']
 name='X-GNOME-Sundry.directory'
-apps=['']
+apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'Sundry', 'YaST']
@@ -150,7 +268,7 @@ sources=[('xkb', 'us')]
 xkb-options=@as []
 
 [org/gnome/control-center]
-last-panel='applications'
+last-panel='user-accounts'
 
 [org/gnome/nm-applet]
 show-applet=false
@@ -168,11 +286,32 @@ numlock-state='on'
 
 [org/gnome/settings-daemon/plugins/xsettings]
 overrides={'Gtk/ShellShowsAppMenu': <1>}
-hinting='slight'
+antialiasing='rgba'
+hinting='none'
 
 [org/gnome/settings-daemon/plugins/power]
 button-suspend='nothing'
-active=true
+active=false
+
+[org/gnome/mutter]
+overlay-key=''
+attach-modal-dialogs=true
+dynamic-workspaces=false
+
+[org/gnome/deja-dup]
+backend='goa'
+prompt-check='2019-08-16T20:23:27.653939Z'
+
+[org/gnome/deja-dup/file]
+migrated=true
+
+[org/gnome/deja-dup/goa]
+type='google'
+
+[org/gnome/gedit/plugins/filebrowser]
+tree-view=true
+virtual-root='file:///home/vagrant/Desktop'
+root='file:///'
 
 [org/gnome/gedit/plugins]
 active-plugins=['spell', 'docinfo', 'filebrowser', 'time', 'modelines']
@@ -208,4 +347,3 @@ allow-updates=false
 new-terminal-mode='window'
 shell-integration-enabled=false
 shortcuts-enabled=false
-
