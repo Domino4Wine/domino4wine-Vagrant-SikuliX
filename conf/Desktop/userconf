@@ -224,7 +224,7 @@ allow-volume-above-100-percent=false
 [org/gnome/desktop/background]
 picture-options='none'
 primary-color='#505050'
-draw-background=false
+draw-background=true
 picture-uri='file:///usr/share/backgrounds/ProminicBackground.png'
 
 [org/gnome/desktop/interface]
