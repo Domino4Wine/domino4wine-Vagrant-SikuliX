@@ -59,7 +59,7 @@ network-monitor-gio-name=''
 always-show-log-out=false
 enable-hot-corners=false
 disable-user-extensions=false
-favorite-apps=['IBM+Notes.desktop', 'IBM+Domino+Admin.desktop', 'Logout.desktop','IBMNotesX.desktop']
+favorite-apps=['IBM+Domino+Admin.desktop', 'Logout.desktop','IBMNotes.desktop']
 enabled-extensions=['ubuntu-dock@ubuntu.com', 'arc-menu@linxgem33.com', 'dash-to-panel@jderose9.github.com', 'TopIcons@phocean.net', 'extend-panel-menu@julio641742', 'desktop-icons@csoriano']
 development-tools=false
 
@@ -85,7 +85,7 @@ user-icon=false
 
 [org/gnome/shell/extensions/arc-menu]
 show-software-shortcut=false
-pinned-app-list=['IBM Notes', '/vagrant/Desktop/Notes.ico', 'IBM+Notes.desktop', 'IBM Domino Designer', '/vagrant/Desktop/Designer.ico', 'IBM+Domino+Designer.desktop', 'IBM Domino Administrator', '/vagrant/Desktop/Admin.ico', 'IBM+Domino+Admin.desktop']
+pinned-app-list=['IBM Notes', '/vagrant/Desktop/Notes.ico', 'IBMNotes.desktop','IBM Domino Administrator', '/vagrant/Desktop/Admin.ico', 'IBM+Domino+Admin.desktop']
 menu-height=550
 menu-border-size=0
 vert-separator=false
