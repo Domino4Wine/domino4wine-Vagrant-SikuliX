@@ -39,7 +39,6 @@
     - python3-psutil
     - xvfb
     - preload
-    - unix2dos
     - dos2unix
 - 
   name: Set timezone to America/Chicago
