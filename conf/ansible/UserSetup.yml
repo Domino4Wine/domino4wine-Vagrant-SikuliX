@@ -38,7 +38,6 @@
         InstallMode=1
         NotesProgram=C:\Program Files\IBM\notes\
         Directory=C:\users\crossover\IBM\notes\Data
-        UseWindowsFontSubstituteFontList=Courier
         UseBasicNotes=1
     create: true
     marker: ""
@@ -66,7 +65,7 @@
     recurse: true
     state: directory
   ignore_errors: true
-  name: "Recursively change ownership of a directory"
+  name: "Recursively change ownership of /home/{{ user  }}/.cxoffice"
 - 
   name: "Change Setup.txt to Windows Line Endings for Scriptable Installation"
   shell: "unix2dos /home/{{ user  }}/.cxoffice/Notes10Demo/dosdevices/c:/users/crossover/setup.txt"
