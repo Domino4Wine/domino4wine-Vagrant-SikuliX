@@ -22,6 +22,7 @@
         Domino.Port=TCP/IP
         Domino.Server=1
         AdditionalServices=-1
+        UseBasicNotes=1
     create: true
     marker: ""
     owner: "{{  user  }}"
@@ -59,9 +60,9 @@
 - 
   become: true
   file: 
-    group: "{{ user  }}"
-    owner: "{{ user  }}"
-    path: /home/"{{ user  }}"/.cxoffice"
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    path: "/home/{{ user  }}/.cxoffice"
     recurse: true
     state: directory
   ignore_errors: true
