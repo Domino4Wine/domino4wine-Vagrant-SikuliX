@@ -240,12 +240,12 @@
 -
   name: Setting Global Dconf
   copy:
-    src: /vagrant/Desktop/{{item}}
+    src: /vagrant/Desktop/userconf
     dest: /etc/dconf/db/local.d/userconf
     mode: 0774
-  with_items:
-    ['userconf']
-- name: Updating dconf Configuration for all users
+    force: yes
+- 
+  name: Updating dconf Configuration for all users
   command: dconf update
 -
   name: Cloning Top-icons Gnome Extension
