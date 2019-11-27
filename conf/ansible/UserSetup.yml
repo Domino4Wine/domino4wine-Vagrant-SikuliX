@@ -57,16 +57,6 @@
     state: absent
     path: "{{  userid  }}"
 - 
-  become: true
-  file: 
-    group: "{{ user }}"
-    owner: "{{ user }}"
-    path: "/home/{{ user  }}/.cxoffice"
-    recurse: true
-    state: directory
-  ignore_errors: true
-  name: "Recursively change ownership of /home/{{ user  }}/.cxoffice"
-- 
   name: "Change Setup.txt to Windows Line Endings for Scriptable Installation"
   shell: "unix2dos /home/{{ user  }}/.cxoffice/Notes10Demo/dosdevices/c:/users/crossover/setup.txt"
 -
